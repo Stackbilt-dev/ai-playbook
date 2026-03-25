@@ -1,0 +1,40 @@
+graph TB
+    UI[User Interface] --> ERTS[ERTS Parser]
+    ERTS --> CM[Context Manager]
+    CM <--> PL[Protocol Layer]
+    CM <--> MO[Module Orchestrator]
+    
+    subgraph "Protocol Layer"
+        CEP[Context Exchange Protocol]
+        TOP[Tool Orchestration Protocol]
+        MBP[Modality Bridge Protocol]
+    end
+    
+    subgraph "Processing Modules"
+        FRE[Fractal Reasoning Engine]
+        LSM[Logic Synthesis Module]
+        PRS[Pattern Recognition System]
+        EIU[Emotional Intelligence Unit]
+    end
+    
+    subgraph "Execution Environment"
+        TR[Tool Registry]
+        EF[Evaluation Framework]
+        RO[Resource Optimizer]
+    end
+    
+    MO <--> FRE
+    MO <--> LSM
+    MO <--> PRS
+    MO <--> EIU
+    
+    PL <--> TR
+    PL <--> EF
+    PL <--> RO
+    
+    PL <--> FRE
+    PL <--> LSM
+    PL <--> PRS
+    PL <--> EIU
+    
+    TR --> Tools[External Tools]

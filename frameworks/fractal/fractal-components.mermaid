@@ -1,0 +1,48 @@
+classDiagram
+    class Scale {
+        +identifier String
+        +domain String
+        +constraints List
+        +assumptions List
+        +analyze()
+        +validate()
+    }
+
+    class Analysis {
+        +patterns List
+        +relationships Map
+        +contradictions Set
+        +uncertainties List
+        +identifyPatterns()
+        +mapRelationships()
+    }
+
+    class Synthesis {
+        +insights List
+        +implications Map
+        +recommendations List
+        +compileInsights()
+        +deriveImplications()
+    }
+
+    class Integration {
+        +crossScalePatterns List
+        +emergentProperties Set
+        +unifiedInsights Map
+        +integrateScales()
+        +validateCoherence()
+    }
+
+    class FractalFramework {
+        +scales List~Scale~
+        +analysis Analysis
+        +synthesis Synthesis
+        +integration Integration
+        +processQuery()
+        +generateResponse()
+    }
+
+    FractalFramework --> Scale
+    FractalFramework --> Analysis
+    FractalFramework --> Synthesis
+    FractalFramework --> Integration

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1a1a1a"/>
+  
+  <!-- Layer Boxes -->
+  <!-- Direct Analysis -->
+  <rect x="100" y="50" width="600" height="80" rx="15" 
+        fill="#2C3E50" stroke="#40E0D0" stroke-width="2"/>
+  <text x="150" y="95" fill="#40E0D0" font-family="Arial" font-size="20">
+    Direct Analysis Layer
+  </text>
+  <text x="150" y="115" fill="#a0a0a0" font-family="Arial" font-size="12">
+    Problem decomposition • Core components • Initial solutions
+  </text>
+
+  <!-- Meta Analysis -->
+  <rect x="100" y="170" width="600" height="80" rx="15" 
+        fill="#2C3E50" stroke="#3498DB" stroke-width="2"/>
+  <text x="150" y="215" fill="#3498DB" font-family="Arial" font-size="20">
+    Meta Analysis Layer
+  </text>
+  <text x="150" y="235" fill="#a0a0a0" font-family="Arial" font-size="12">
+    Assumptions • Perspectives • Biases • Alternatives
+  </text>
+
+  <!-- Pattern Recognition -->
+  <rect x="100" y="290" width="600" height="80" rx="15" 
+        fill="#2C3E50" stroke="#9B59B6" stroke-width="2"/>
+  <text x="150" y="335" fill="#9B59B6" font-family="Arial" font-size="20">
+    Pattern Recognition Layer
+  </text>
+  <text x="150" y="355" fill="#a0a0a0" font-family="Arial" font-size="12">
+    Cross-domain patterns • Universal principles • Analogies
+  </text>
+
+  <!-- Knowledge Integration -->
+  <rect x="100" y="410" width="600" height="80" rx="15" 
+        fill="#2C3E50" stroke="#E74C3C" stroke-width="2"/>
+  <text x="150" y="455" fill="#E74C3C" font-family="Arial" font-size="20">
+    Knowledge Integration Layer
+  </text>
+  <text x="150" y="475" fill="#a0a0a0" font-family="Arial" font-size="12">
+    Experience • Research • Precedents • Principles
+  </text>
+
+  <!-- Emotional Processing -->
+  <rect x="100" y="530" width="600" height="80" rx="15"
+        fill="#2C3E50" stroke="#F1C40F" stroke-width="2"/>
+  <text x="150" y="575" fill="#F1C40F" font-family="Arial" font-size="20">
+    Emotional Processing Layer
+  </text>
+  <text x="150" y="595" fill="#a0a0a0" font-family="Arial" font-size="12">
+    Human impact • Psychological factors • Adoption strategy
+  </text>
+
+  <!-- Forward Flow Arrows -->
+  <path d="M400 130 L400 170" stroke="#40E0D0" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M400 250 L400 290" stroke="#3498DB" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M400 370 L400 410" stroke="#9B59B6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M400 490 L400 530" stroke="#E74C3C" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Feedback Loops -->
+  <path d="M650 90 C750 90, 750 575, 650 575" 
+        stroke="#666666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrowhead Marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#40E0D0"/>
+    </marker>
+  </defs>
+
+  <!-- Floating Particles -->
+  <circle cx="200" cy="150" r="2" fill="#40E0D0">
+    <animate attributeName="cy" values="150;170;150" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="270" r="2" fill="#3498DB">
+    <animate attributeName="cy" values="270;290;270" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="300" cy="390" r="2" fill="#9B59B6">
+    <animate attributeName="cy" values="390;410;390" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="500" cy="510" r="2" fill="#E74C3C">
+    <animate attributeName="cy" values="510;530;510" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Layer Connection Lines -->
+  <line x1="150" y1="130" x2="150" y2="530" stroke="#333333" stroke-width="1"/>
+  <line x1="650" y1="130" x2="650" y2="530" stroke="#333333" stroke-width="1"/>
+</svg>

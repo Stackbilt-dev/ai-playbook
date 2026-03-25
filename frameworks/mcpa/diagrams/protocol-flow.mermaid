@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant UI as User Interface
+    participant ERTS as ERTS Parser
+    participant CM as Context Manager
+    participant MO as Module Orchestrator
+    participant FR as Fractal Reasoning
+    participant LS as Logic Synthesis
+    participant PR as Pattern Recognition
+    participant TR as Tool Registry
+    
+    UI->>ERTS: User Input
+    ERTS->>CM: Parsed Task
+    CM->>MO: Request Module Orchestration
+    MO-->>CM: Active Modules
+    
+    CM->>FR: Initialize Context
+    CM->>LS: Initialize Context
+    CM->>PR: Initialize Context
+    
+    FR->>CM: Request Tool
+    CM->>TR: Tool Request
+    TR-->>CM: Tool Response
+    CM-->>FR: Tool Result
+    
+    FR->>CM: Macro Analysis Complete
+    LS->>CM: Logical Analysis Complete
+    PR->>CM: Pattern Analysis Complete
+    
+    CM->>CM: Synthesize Insights
+    CM-->>UI: Final Response

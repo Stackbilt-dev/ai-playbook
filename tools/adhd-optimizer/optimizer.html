@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHD Prompt Optimizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00ff88, #00aaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .optimizer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .optimizer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-section, .output-section {
+            background: #252525;
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            color: #fff;
+        }
+
+        .char-count {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 300px;
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            color: #e0e0e0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #00aaff;
+        }
+
+        .output-content {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            min-height: 300px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            overflow-y: auto;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .optimize-btn {
+            background: linear-gradient(135deg, #00ff88, #00aaff);
+            color: #000;
+        }
+
+        .optimize-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
+        }
+
+        .style-select {
+            padding: 12px 20px;
+            background: #252525;
+            border: 2px solid #333;
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .metrics {
+            background: #252525;
+            border-radius: 12px;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .metric-label {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .token-reduction {
+            color: #00ff88;
+        }
+
+        .clarity-score {
+            color: #00aaff;
+        }
+
+        .structure-score {
+            color: #ff00aa;
+        }
+
+        .examples {
+            margin-top: 40px;
+            padding: 25px;
+            background: #252525;
+            border-radius: 12px;
+        }
+
+        .example-btn {
+            background: #333;
+            color: #e0e0e0;
+            padding: 8px 16px;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .example-btn:hover {
+            background: #444;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background: #333;
+            color: #e0e0e0;
+            font-size: 14px;
+        }
+
+        .copy-btn:hover {
+            background: #444;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #888;
+        }
+
+        .principles {
+            margin-top: 30px;
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .principles h3 {
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .principles ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .principles li {
+            padding: 8px 0;
+            color: #aaa;
+        }
+
+        .principles li:before {
+            content: "→ ";
+            color: #00aaff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ADHD Prompt Optimizer</h1>
+        <p class="subtitle">Transform any prompt into a context-optimized version</p>
+
+        <div class="controls">
+            <select class="style-select" id="styleSelect">
+                <option value="auto">🎯 Auto-Detect Style</option>
+                <option value="technical">🔧 Technical/Coding</option>
+                <option value="debug">🐛 Debugging</option>
+                <option value="learning">📚 Learning</option>
+                <option value="creative">✍️ Creative</option>
+                <option value="general">📋 General</option>
+            </select>
+            <button class="optimize-btn" onclick="optimizePrompt()">
+                <span>⚡</span> Optimize Prompt
+            </button>
+        </div>
+
+        <div class="optimizer-grid">
+            <div class="input-section">
+                <div class="section-header">
+                    <h2>Original Prompt</h2>
+                    <span class="char-count" id="inputCount">0 chars</span>
+                </div>
+                <textarea 
+                    id="inputPrompt" 
+                    placeholder="Paste your prompt here..."
+                    oninput="updateCharCount()"
+                ></textarea>
+            </div>
+
+            <div class="output-section">
+                <div class="section-header">
+                    <h2>Optimized Prompt</h2>
+                    <button class="copy-btn" onclick="copyOptimized()">📋 Copy</button>
+                </div>
+                <div class="output-content" id="outputPrompt">
+                    Your optimized prompt will appear here...
+                </div>
+                <div class="loading" id="loading">Optimizing...</div>
+            </div>
+        </div>
+
+        <div class="metrics" id="metrics" style="display: none;">
+            <div class="metric-card">
+                <div class="metric-label">Token Reduction</div>
+                <div class="metric-value token-reduction" id="tokenReduction">-</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Clarity Score</div>
+                <div class="metric-value clarity-score" id="clarityScore">-</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Structure Score</div>
+                <div class="metric-value structure-score" id="structureScore">-</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Estimated Tokens</div>
+                <div class="metric-value" id="tokenCount">-</div>
+            </div>
+        </div>
+
+        <div class="examples">
+            <h3>Try an Example:</h3>
+            <button class="example-btn" onclick="loadExample('technical')">Technical Request</button>
+            <button class="example-btn" onclick="loadExample('debug')">Debug Problem</button>
+            <button class="example-btn" onclick="loadExample('learning')">Learning Question</button>
+            <button class="example-btn" onclick="loadExample('creative')">Creative Task</button>
+            <button class="example-btn" onclick="loadExample('complex')">Complex Project</button>
+        </div>
+
+        <div class="principles">
+            <h3>ADHD Optimization Principles</h3>
+            <ul>
+                <li>Front-load critical information - main task first</li>
+                <li>Use visual markers (emojis) as semantic anchors</li>
+                <li>Structure with bullet points over paragraphs</li>
+                <li>Make all implicit requirements explicit</li>
+                <li>Remove filler words and redundancy</li>
+                <li>Group related information logically</li>
+                <li>Specify clear output expectations</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const examples = {
+            technical: `I'm working on a React application and I've noticed that when I render large lists of items, the performance becomes really sluggish. I've tried using key props and I'm already using functional components, but it's still slow. The list has about 1000 items and each item has several child components. I need to figure out how to optimize this. Can you help me understand the best practices for handling large lists in React?`,
+            
+            debug: `My Node.js API is returning a 500 error when I try to upload files larger than 10MB. I've checked the Express body parser limits and they seem fine. The error only happens in production, not locally. I'm using multer for file uploads and storing files in AWS S3. The error message in the logs just says "PayloadTooLargeError". I've been stuck on this for hours.`,
+            
+            learning: `I want to learn about WebSockets because I need to add real-time features to my web application. I have experience with REST APIs and I'm comfortable with JavaScript, but I don't understand how WebSockets are different or when I should use them instead of regular HTTP requests. Can you explain the concepts and show me how to get started?`,
+            
+            creative: `I need to write a blog post about the importance of accessible web design. The target audience is web developers who might not be familiar with accessibility standards. I want it to be informative but not preachy, and include practical examples they can implement right away. The tone should be friendly and encouraging, around 800-1000 words.`,
+            
+            complex: `I'm designing a microservices architecture for an e-commerce platform. We need to handle user authentication, product catalog, inventory management, order processing, and payment integration. The system needs to be scalable to handle Black Friday traffic (expecting 10x normal load), maintain high availability (99.9% uptime), and comply with PCI DSS for payment processing. We're considering using Kubernetes for orchestration and either AWS or GCP for cloud infrastructure. I need help with the overall architecture design and service communication patterns.`
+        };
+
+        function updateCharCount() {
+            const input = document.getElementById('inputPrompt').value;
+            document.getElementById('inputCount').textContent = `${input.length} chars`;
+        }
+
+        function loadExample(type) {
+            document.getElementById('inputPrompt').value = examples[type];
+            updateCharCount();
+        }
+
+        function optimizePrompt() {
+            const input = document.getElementById('inputPrompt').value;
+            const style = document.getElementById('styleSelect').value;
+            
+            if (!input.trim()) {
+                alert('Please enter a prompt to optimize');
+                return;
+            }
+
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('outputPrompt').style.display = 'none';
+
+            // Simulate optimization (in real implementation, this would call the Python backend)
+            setTimeout(() => {
+                const optimized = performOptimization(input, style);
+                displayResults(optimized);
+            }, 500);
+        }
+
+        function performOptimization(input, style) {
+            // This is a simplified JavaScript version of the optimization
+            const result = {
+                optimized: '',
+                metrics: {
+                    originalTokens: Math.floor(input.length / 4),
+                    optimizedTokens: 0,
+                    reduction: 0,
+                    clarity: 0,
+                    structure: 0
+                }
+            };
+
+            // Extract key components
+            const components = extractComponents(input);
+            
+            // Apply style-specific optimization
+            result.optimized = applyOptimization(components, style);
+            
+            // Calculate metrics
+            result.metrics.optimizedTokens = Math.floor(result.optimized.length / 4);
+            result.metrics.reduction = Math.floor(((result.metrics.originalTokens - result.metrics.optimizedTokens) / result.metrics.originalTokens) * 100);
+            result.metrics.clarity = calculateClarityScore(result.optimized);
+            result.metrics.structure = calculateStructureScore(result.optimized);
+
+            return result;
+        }
+
+        function extractComponents(input) {
+            const lower = input.toLowerCase();
+            const components = {
+                task: '',
+                context: [],
+                requirements: [],
+                constraints: []
+            };
+
+            // Simple extraction logic
+            const sentences = input.split(/[.!?]+/);
+            
+            // First sentence often contains the main task
+            if (sentences.length > 0) {
+                components.task = sentences[0].trim()
+                    .replace(/^(i need|i want|help me|create|build|make|fix|solve|explain|write)\s+/i, '');
+            }
+
+            // Extract context
+            const contextPatterns = /(i have|i'm using|working with|currently|using)/gi;
+            input.match(new RegExp(`${contextPatterns.source}[^.]+`, 'gi'))?.forEach(match => {
+                const context = match.replace(contextPatterns, '').trim();
+                if (context) components.context.push(context);
+            });
+
+            // Extract requirements
+            const reqPatterns = /(should|must|need to|has to|require|want it to)/gi;
+            input.match(new RegExp(`${reqPatterns.source}[^.]+`, 'gi'))?.forEach(match => {
+                const req = match.replace(reqPatterns, '').trim();
+                if (req) components.requirements.push(req);
+            });
+
+            // Extract constraints
+            const constraintPatterns = /(limit|maximum|minimum|only|cannot|don't|avoid|without)/gi;
+            input.match(new RegExp(`${constraintPatterns.source}[^.]+`, 'gi'))?.forEach(match => {
+                const constraint = match.replace(constraintPatterns, '').trim();
+                if (constraint) components.constraints.push(constraint);
+            });
+
+            return components;
+        }
+
+        function applyOptimization(components, style) {
+            const emoji = {
+                task: '🎯',
+                context: '📋',
+                requirements: '✅',
+                constraints: '⚠️',
+                tools: '🔧',
+                bug: '🐛',
+                learn: '📚',
+                create: '✍️',
+                build: '🏗️',
+                output: '📤',
+                need: '❓'
+            };
+
+            let lines = [];
+
+            switch(style) {
+                case 'technical':
+                    if (components.task) lines.push(`${emoji.build} BUILD: ${components.task}`);
+                    if (components.context.length) lines.push(`${emoji.tools} STACK: ${components.context.join(', ')}`);
+                    break;
+                    
+                case 'debug':
+                    if (components.task) lines.push(`${emoji.bug} ISSUE: ${components.task}`);
+                    if (components.context.length) lines.push(`${emoji.context} CONTEXT: ${components.context.join(', ')}`);
+                    lines.push(`${emoji.need} NEED: Specific fix`);
+                    break;
+                    
+                case 'learning':
+                    if (components.task) lines.push(`${emoji.learn} LEARN: ${components.task}`);
+                    if (components.context.length) lines.push(`📋 BACKGROUND: ${components.context.join(', ')}`);
+                    lines.push(`🎯 GOAL: Practical understanding`);
+                    break;
+                    
+                case 'creative':
+                    if (components.task) lines.push(`${emoji.create} CREATE: ${components.task}`);
+                    break;
+                    
+                default:
+                    if (components.task) lines.push(`${emoji.task} TASK: ${components.task}`);
+            }
+
+            // Add requirements
+            if (components.requirements.length) {
+                lines.push(`${emoji.requirements} REQUIREMENTS:`);
+                components.requirements.slice(0, 4).forEach(req => {
+                    lines.push(`- ${req}`);
+                });
+            }
+
+            // Add constraints
+            if (components.constraints.length) {
+                lines.push(`${emoji.constraints} CONSTRAINTS:`);
+                components.constraints.slice(0, 3).forEach(constraint => {
+                    lines.push(`- ${constraint}`);
+                });
+            }
+
+            // Add output expectation
+            lines.push(`${emoji.output} OUTPUT: Clear, actionable solution`);
+
+            return lines.join('\n');
+        }
+
+        function calculateClarityScore(text) {
+            let score = 70;
+            if (text.includes('🎯')) score += 10;
+            if (text.includes('\n-')) score += 10;
+            if (text.split('\n').length > 3) score += 10;
+            return Math.min(100, score);
+        }
+
+        function calculateStructureScore(text) {
+            let score = 0;
+            if (/[🎯📋✅⚠️🔧🐛📚✍️]/.test(text)) score += 30;
+            if (text.includes('\n-')) score += 20;
+            if (text.includes(':')) score += 20;
+            if (text.split('\n').length > 2) score += 30;
+            return Math.min(100, score);
+        }
+
+        function displayResults(result) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('outputPrompt').style.display = 'block';
+            document.getElementById('outputPrompt').textContent = result.optimized;
+            
+            // Update metrics
+            document.getElementById('tokenReduction').textContent = `${result.metrics.reduction}%`;
+            document.getElementById('clarityScore').textContent = `${result.metrics.clarity}/100`;
+            document.getElementById('structureScore').textContent = `${result.metrics.structure}/100`;
+            document.getElementById('tokenCount').textContent = `${result.metrics.originalTokens} → ${result.metrics.optimizedTokens}`;
+            
+            document.getElementById('metrics').style.display = 'grid';
+        }
+
+        function copyOptimized() {
+            const output = document.getElementById('outputPrompt').textContent;
+            navigator.clipboard.writeText(output).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => {
+                    btn.textContent = '📋 Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+graph TD
+    subgraph MACRO["Macro Scale: Cognitive Architecture"]
+        M1[Context Analysis] --> M2[Pattern Recognition]
+        M2 --> M3[Relationship Mapping]
+        M3 --> M4[Contradiction Analysis]
+    end
+
+    subgraph MESO["Meso Scale: Component Level"]
+        MS1[Component Identification] --> MS2[Structure Analysis]
+        MS2 --> MS3[Integration Guidelines]
+        MS3 --> MS4[Template Generation]
+    end
+
+    subgraph MICRO["Micro Scale: Implementation"]
+        MC1[Pattern Implementation] --> MC2[Analysis Triggers]
+        MC2 --> MC3[Synthesis Cues]
+        MC3 --> MC4[Integration Prompts]
+    end
+
+    subgraph CROSS["Cross-Scale Integration"]
+        CS1[Structured Decomposition] --> CS2[Cognitive Scaffolding]
+        CS2 --> CS3[Quality Assurance]
+        CS3 --> CS4[Implementation Strategy]
+    end
+
+    MACRO --> MESO
+    MESO --> MICRO
+    MICRO --> CROSS
+    CROSS --> |Feedback Loop| MACRO
+
+    style MACRO fill:#f9f,stroke:#333,stroke-width:2px
+    style MESO fill:#bbf,stroke:#333,stroke-width:2px
+    style MICRO fill:#bfb,stroke:#333,stroke-width:2px
+    style CROSS fill:#fbb,stroke:#333,stroke-width:2px

@@ -1,0 +1,45 @@
+classDiagram
+    class StateVector {
+        +linguistic_features Vector
+        +context_window Matrix
+        +uncertainty Float
+        +compute_hash()
+        +evolve()
+    }
+
+    class RuleEngine {
+        +pattern_matcher PatternMatcher
+        +state_transformer StateTransformer
+        +context_integrator ContextIntegrator
+        +apply_rules()
+        +optimize_rules()
+    }
+
+    class EvolutionEngine {
+        +scales List~Scale~
+        +current_state State
+        +evolve_state()
+        +project_to_scale()
+    }
+
+    class SystemOptimizer {
+        +compression_engine Compressor
+        +rule_optimizer Optimizer
+        +memory_manager MemoryManager
+        +optimize()
+        +manage_resources()
+    }
+
+    class ECARLMSystem {
+        +state_manager StateManager
+        +rule_engine RuleEngine
+        +evolution_engine EvolutionEngine
+        +optimizer SystemOptimizer
+        +process()
+        +iterate()
+    }
+
+    ECARLMSystem --> StateVector
+    ECARLMSystem --> RuleEngine
+    ECARLMSystem --> EvolutionEngine
+    ECARLMSystem --> SystemOptimizer

@@ -8,11 +8,17 @@ Skills are markdown files with YAML frontmatter that Claude Code loads as slash 
 
 | Skill | Framework | What it does |
 |-------|-----------|-------------|
-| [clarity-architect.md](skills/clarity-architect.md) | Vibecoding | Activates the Clarity Architect archetype for structural simplicity |
-| [truth-builder.md](skills/truth-builder.md) | Vibecoding | Activates the Truth Builder archetype for first-principles analysis |
-| [adhd-optimize.md](skills/adhd-optimize.md) | ADHD Prompting | Rewrites any prompt using ADHD optimization patterns |
-| [context-audit.md](skills/context-audit.md) | Context Engineering | Audits your current conversation for context efficiency |
-| [fractal-decompose.md](skills/fractal-decompose.md) | Fractal | Decomposes a problem across macro/meso/micro scales |
+| [clarity-architect.md](skills/clarity-architect.md) | Vibecoding | Structural simplicity — fortress-like clarity |
+| [direct-mirror.md](skills/direct-mirror.md) | Vibecoding | Immediate insight — cut through confusion |
+| [flow-director.md](skills/flow-director.md) | Vibecoding | Dynamic harmony — structured improvisation |
+| [truth-builder.md](skills/truth-builder.md) | Vibecoding | Foundational rigor — first-principles analysis |
+| [pattern-synthesizer.md](skills/pattern-synthesizer.md) | Vibecoding | Holistic integration — systems thinking |
+| [wisdom-guide.md](skills/wisdom-guide.md) | Vibecoding | Ethical integration — stakeholder harmony |
+| [creative-organizer.md](skills/creative-organizer.md) | Vibecoding | Aesthetic function — beautiful structure |
+| [purpose-seeker.md](skills/purpose-seeker.md) | Vibecoding | Authentic discovery — find the real "why" |
+| [adhd-optimize.md](skills/adhd-optimize.md) | ADHD Prompting | Rewrites any prompt for 40-60% token reduction |
+| [context-audit.md](skills/context-audit.md) | Context Engineering | Audits conversation context efficiency |
+| [fractal-decompose.md](skills/fractal-decompose.md) | Fractal | Macro/meso/micro problem decomposition |
 
 ## Example CLAUDE.md Configurations
 

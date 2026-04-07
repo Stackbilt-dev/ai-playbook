@@ -8,7 +8,7 @@ Distilled from 70+ real-world projects. 9 reasoning frameworks, 8 philosophical 
 
 [![Vibecoding Archetypes](https://img.shields.io/badge/Vibecoding_Archetypes-8-purple)](tasks/vibecoding/)
 [![Frameworks](https://img.shields.io/badge/Frameworks-9-blue)](frameworks/)
-[![Claude Code Skills](https://img.shields.io/badge/Claude_Code_Skills-6-orange)](claude-code/)
+[![Claude Code Skills](https://img.shields.io/badge/Claude_Code_Skills-12-orange)](claude-code/)
 [![Task Prompts](https://img.shields.io/badge/Task_Prompts-47-green)](tasks/)
 [![Templates](https://img.shields.io/badge/Templates-3-teal)](templates/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -130,7 +130,13 @@ Drop-in skills and CLAUDE.md configurations. The fastest way to use these framew
 | Skill | Framework | What it does |
 |-------|-----------|-------------|
 | [`clarity-architect`](claude-code/skills/clarity-architect.md) | Vibecoding | Structural simplicity lens |
+| [`direct-mirror`](claude-code/skills/direct-mirror.md) | Vibecoding | Immediate insight — cut through confusion |
+| [`flow-director`](claude-code/skills/flow-director.md) | Vibecoding | Dynamic harmony — structured improvisation |
 | [`truth-builder`](claude-code/skills/truth-builder.md) | Vibecoding | First-principles challenge |
+| [`pattern-synthesizer`](claude-code/skills/pattern-synthesizer.md) | Vibecoding | Holistic systems thinking |
+| [`wisdom-guide`](claude-code/skills/wisdom-guide.md) | Vibecoding | Ethical integration — stakeholder harmony |
+| [`creative-organizer`](claude-code/skills/creative-organizer.md) | Vibecoding | Aesthetic function — beautiful structure |
+| [`purpose-seeker`](claude-code/skills/purpose-seeker.md) | Vibecoding | Authentic discovery — find the real "why" |
 | [`adhd-optimize`](claude-code/skills/adhd-optimize.md) | ADHD Prompting | Rewrite any prompt for 40-60% token reduction |
 | [`context-audit`](claude-code/skills/context-audit.md) | Context Engineering | Audit conversation context efficiency |
 | [`fractal-decompose`](claude-code/skills/fractal-decompose.md) | Fractal | Macro/meso/micro problem decomposition |

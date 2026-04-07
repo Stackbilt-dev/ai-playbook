@@ -4,7 +4,7 @@ Drop-in skills and CLAUDE.md configurations built on the AI Playbook frameworks.
 
 ## Skills
 
-Skills are markdown files that Claude Code loads as slash commands. Place them in your project's `.claude/commands/` directory.
+Skills are markdown files with YAML frontmatter that Claude Code loads as slash commands. Place them in your project's `.claude/skills/<name>/SKILL.md` (recommended) or `.claude/commands/<name>.md` (legacy).
 
 | Skill | Framework | What it does |
 |-------|-----------|-------------|
@@ -27,10 +27,14 @@ Pre-built CLAUDE.md files that wire up the frameworks as default behavior:
 ## Quick Setup
 
 ```bash
-# Install a skill
-cp ai-playbook/claude-code/skills/adhd-optimize.md .claude/commands/
+# Install a skill (recommended — skill directory format)
+mkdir -p .claude/skills/adhd-optimize
+cp ai-playbook/claude-code/skills/adhd-optimize.md .claude/skills/adhd-optimize/SKILL.md
 
-# Now use it in Claude Code
+# Or use the legacy commands directory
+cp ai-playbook/claude-code/skills/adhd-optimize.md .claude/commands/adhd-optimize.md
+
+# Now use it in Claude Code:
 # /adhd-optimize "Your verbose prompt here"
 
 # Or grab a full CLAUDE.md config

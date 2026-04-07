@@ -24,7 +24,8 @@ Distilled from 70+ real-world projects. 9 reasoning frameworks, 8 philosophical 
 **Option A: Claude Code skill** -- copy one file, get a new capability:
 ```bash
 # Copy a skill into your project
-cp ai-playbook/claude-code/skills/adhd-optimize.md .claude/commands/
+mkdir -p .claude/skills/adhd-optimize
+cp ai-playbook/claude-code/skills/adhd-optimize.md .claude/skills/adhd-optimize/SKILL.md
 
 # Use it
 # /adhd-optimize "Your verbose, rambling prompt that could be better"
@@ -124,7 +125,7 @@ flowchart TD
 
 Drop-in skills and CLAUDE.md configurations. The fastest way to use these frameworks.
 
-### Skills (copy to `.claude/commands/`)
+### Skills (copy to `.claude/skills/<name>/SKILL.md`)
 
 | Skill | Framework | What it does |
 |-------|-----------|-------------|
@@ -144,8 +145,12 @@ Drop-in skills and CLAUDE.md configurations. The fastest way to use these framew
 | [`claude-md-research`](claude-code/examples/claude-md-research.md) | Research and analysis |
 
 ```bash
-# Quick setup
-cp ai-playbook/claude-code/skills/*.md .claude/commands/
+# Quick setup — install all skills
+for f in ai-playbook/claude-code/skills/*.md; do
+  name=$(basename "$f" .md)
+  mkdir -p ".claude/skills/$name"
+  cp "$f" ".claude/skills/$name/SKILL.md"
+done
 ```
 
 [Full Claude Code docs](claude-code/)

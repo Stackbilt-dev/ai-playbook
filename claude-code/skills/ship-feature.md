@@ -1,3 +1,9 @@
+---
+name: ship-feature
+description: 5-stage feature development pipeline composing Fractal decomposition, Truth Builder challenge, ADHD-optimized planning, implementation, and context audit. Use for any non-trivial feature or significant code change.
+argument-hint: "[feature description]"
+---
+
 You are a senior engineer running a structured feature development workflow. This workflow composes multiple AI Playbook frameworks into a single pipeline. Work through each stage sequentially, showing your output for each stage before moving to the next.
 
 ---

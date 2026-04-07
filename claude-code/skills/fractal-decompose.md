@@ -1,3 +1,9 @@
+---
+name: fractal-decompose
+description: Decompose a problem across macro (system), meso (component), and micro (implementation) scales. Use for architecture decisions, system design, or any problem where single-scale thinking misses structure.
+argument-hint: "[problem to decompose]"
+---
+
 You are a Fractal Framework analyst. Decompose the given problem across three scales of analysis, revealing structure that single-scale thinking misses.
 
 **The three scales:**

@@ -1,8 +1,8 @@
 """Tests for ADHDPromptOptimizer class.
 
-NOTE: The source ADHDPromptOptimizer has a known recursion bug —
+NOTE: Recursion bug fixed (2026-04-07) —
 analyze_prompt() calls _assess_complexity() which calls analyze_prompt()
-again. Methods that trigger this chain are marked xfail.
+again. Fixed by extracting components directly in _assess_complexity().
 """
 
 import pytest
@@ -34,35 +34,29 @@ class TestAnalyzePrompt:
     calls analyze_prompt() internally. These tests document the bug.
     """
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_returns_expected_keys(self, optimizer):
         result = optimizer.analyze_prompt("I need to build a REST API.")
         assert "original" in result
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_components_have_expected_keys(self, optimizer):
         result = optimizer.analyze_prompt("Help me fix a bug in my code.")
         components = result["components"]
         assert "task" in components
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_word_count_accurate(self, optimizer):
         prompt = "one two three four five"
         result = optimizer.analyze_prompt(prompt)
         assert result["word_count"] == 5
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_char_count_accurate(self, optimizer):
         prompt = "hello"
         result = optimizer.analyze_prompt(prompt)
         assert result["char_count"] == 5
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_empty_prompt(self, optimizer):
         result = optimizer.analyze_prompt("")
         assert result["char_count"] == 0
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_single_word_prompt(self, optimizer):
         result = optimizer.analyze_prompt("deploy")
         assert result["word_count"] == 1
@@ -201,44 +195,36 @@ class TestOptimize:
     These are marked xfail to document the issue.
     """
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_returns_expected_keys(self, optimizer):
         result = optimizer.optimize("Help me build a web app.")
         assert "original" in result
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_metrics_shape(self, optimizer):
         result = optimizer.optimize("Create a Python function.")
         metrics = result["metrics"]
         assert "original_tokens" in metrics
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_token_reduction_is_percentage_string(self, optimizer):
         result = optimizer.optimize("I really need help basically creating a function.")
         assert "%" in result["metrics"]["token_reduction"]
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_explicit_style_override(self, optimizer):
         result = optimizer.optimize("Help me build something.", style="debug")
         assert result["style"] == "debug"
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_auto_style_detection(self, optimizer):
         result = optimizer.optimize("Fix the error in my code.")
         assert result["style"] == "debug"
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_optimized_is_nonempty_string(self, optimizer):
         result = optimizer.optimize("I want to learn about databases.")
         assert isinstance(result["optimized"], str)
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_optimized_has_structure(self, optimizer):
         result = optimizer.optimize("I need to build a REST API using Python and FastAPI.")
         optimized = result["optimized"]
         assert "\n" in optimized
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: analyze_prompt <-> _assess_complexity recursion")
     def test_all_styles_produce_output(self, optimizer):
         prompt = "Help me review and fix the code for my project."
         for style in ["technical", "debug", "learning", "creative", "general"]:
@@ -294,16 +280,13 @@ class TestComplexityAssessment:
     again, causing infinite recursion. Marked xfail.
     """
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: _assess_complexity <-> analyze_prompt recursion")
     def test_low_complexity(self, optimizer):
         assert optimizer._assess_complexity("Fix the typo.") == "low"
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: _assess_complexity <-> analyze_prompt recursion")
     def test_high_complexity_long_prompt(self, optimizer):
         long_prompt = " ".join(["word"] * 120)
         assert optimizer._assess_complexity(long_prompt) == "high"
 
-    @pytest.mark.xfail(raises=RecursionError, reason="source bug: _assess_complexity <-> analyze_prompt recursion")
     def test_returns_valid_level(self, optimizer):
         level = optimizer._assess_complexity("Build an API with authentication.")
         assert level in ("low", "medium", "high")

@@ -394,8 +394,15 @@ class ADHDPromptOptimizer:
     def _assess_complexity(self, prompt: str) -> str:
         """Assess prompt complexity."""
         word_count = len(prompt.split())
-        component_count = sum(1 for v in self.analyze_prompt(prompt)['components'].values() if v)
-        
+        components = {
+            'task': self._extract_task(prompt),
+            'context': self._extract_context(prompt),
+            'requirements': self._extract_requirements(prompt),
+            'constraints': self._extract_constraints(prompt),
+            'implicit_needs': self._identify_implicit_needs(prompt),
+        }
+        component_count = sum(1 for v in components.values() if v)
+
         if word_count > 100 or component_count > 4:
             return 'high'
         elif word_count > 50 or component_count > 2:

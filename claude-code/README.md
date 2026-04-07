@@ -1,0 +1,59 @@
+# Claude Code Integration
+
+Drop-in skills and CLAUDE.md configurations built on the AI Playbook frameworks. Copy what you need, customize to taste.
+
+## Skills
+
+Skills are markdown files that Claude Code loads as slash commands. Place them in your project's `.claude/commands/` directory.
+
+| Skill | Framework | What it does |
+|-------|-----------|-------------|
+| [clarity-architect.md](skills/clarity-architect.md) | Vibecoding | Activates the Clarity Architect archetype for structural simplicity |
+| [truth-builder.md](skills/truth-builder.md) | Vibecoding | Activates the Truth Builder archetype for first-principles analysis |
+| [adhd-optimize.md](skills/adhd-optimize.md) | ADHD Prompting | Rewrites any prompt using ADHD optimization patterns |
+| [context-audit.md](skills/context-audit.md) | Context Engineering | Audits your current conversation for context efficiency |
+| [fractal-decompose.md](skills/fractal-decompose.md) | Fractal | Decomposes a problem across macro/meso/micro scales |
+
+## Example CLAUDE.md Configurations
+
+Pre-built CLAUDE.md files that wire up the frameworks as default behavior:
+
+| Config | Best for |
+|--------|----------|
+| [claude-md-adhd.md](examples/claude-md-adhd.md) | Any project (universal upgrade) |
+| [claude-md-fullstack.md](examples/claude-md-fullstack.md) | Full-stack web development |
+| [claude-md-research.md](examples/claude-md-research.md) | Research and analysis projects |
+
+## Quick Setup
+
+```bash
+# Install a skill
+cp ai-playbook/claude-code/skills/adhd-optimize.md .claude/commands/
+
+# Now use it in Claude Code
+# /adhd-optimize "Your verbose prompt here"
+
+# Or grab a full CLAUDE.md config
+cp ai-playbook/claude-code/examples/claude-md-adhd.md CLAUDE.md
+```
+
+## How Skills Map to Frameworks
+
+```
+Vibecoding Archetypes ──► Persona skills (who the AI becomes)
+ADHD Prompting ─────────► Optimization skills (how prompts are structured)
+Context Engineering ────► Audit skills (measuring context efficiency)
+Fractal Framework ──────► Decomposition skills (breaking down problems)
+METRICS+ ───────────────► Analysis skills (layered evaluation)
+```
+
+## Creating Your Own
+
+Any framework or archetype from this playbook can become a Claude Code skill:
+
+1. Pick a framework from `frameworks/` or archetype from `tasks/vibecoding/`
+2. Extract the system prompt or core methodology
+3. Wrap it in a skill file with `$ARGUMENTS` for user input
+4. Drop it in `.claude/commands/`
+
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for formatting guidelines.

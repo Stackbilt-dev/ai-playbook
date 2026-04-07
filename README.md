@@ -1,144 +1,264 @@
+<div align="center">
+
 # AI Playbook
 
-Battle-tested frameworks, archetypes, and patterns for human-AI collaboration. Distilled from 70+ real-world projects.
+**Battle-tested frameworks for thinking with AI -- not just talking to it.**
 
-<div align="center">
+Distilled from 70+ real-world projects. 9 reasoning frameworks, 8 philosophical archetypes, 47 task prompts, and drop-in Claude Code skills.
 
 [![Vibecoding Archetypes](https://img.shields.io/badge/Vibecoding_Archetypes-8-purple)](tasks/vibecoding/)
 [![Frameworks](https://img.shields.io/badge/Frameworks-9-blue)](frameworks/)
+[![Claude Code Skills](https://img.shields.io/badge/Claude_Code_Skills-6-orange)](claude-code/)
+[![Task Prompts](https://img.shields.io/badge/Task_Prompts-47-green)](tasks/)
 [![Templates](https://img.shields.io/badge/Templates-3-teal)](templates/)
-[![Prompts](https://img.shields.io/badge/Task_Prompts-47-green)](tasks/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+**If this helps you think better with AI, [give it a star](../../stargazers) -- it helps others find it too.**
 
 </div>
 
-## What's in here
+---
 
-This isn't another prompt template collection. It's a toolkit for thinking with AI -- frameworks that change how you approach problems, not just how you phrase questions.
+## Quick Start (60 seconds)
 
-**Three things that make this different:**
+**Option A: Claude Code skill** -- copy one file, get a new capability:
+```bash
+# Copy a skill into your project
+cp ai-playbook/claude-code/skills/adhd-optimize.md .claude/commands/
 
-1. **Vibecoding Archetypes** -- 8 philosophical personas fused from 29 wisdom traditions. Pick one based on resonance, not memorization. [Read more](tasks/vibecoding/)
-
-2. **ADHD Prompting Framework** -- the insight that ADHD communication patterns optimize for the same constraints LLMs face. The constraint is the feature. [Read more](frameworks/adhd-prompting/)
-
-3. **Context Engineering** -- treat your context window as a designable system, not a text box. Measure token ROI, design for emergence. [Read more](frameworks/context-engineering/)
-
-## Repository structure
-
+# Use it
+# /adhd-optimize "Your verbose, rambling prompt that could be better"
 ```
-ai-playbook/
-  frameworks/           # Reasoning and interaction frameworks
-    adhd-prompting/     # Cognitive-constraint-optimized prompting
-    context-engineering/# Context window as designable system
-    ECARLM/             # Cellular automata reasoning for LLMs
-    EGAF/               # Enhanced Global Analysis Framework
-    elsf/               # Enhanced Logic-Based Synergistic Framework
-    fractal/            # Multi-scale reasoning (macro/meso/micro)
-    mcpa/               # Modular Context Protocol Architecture
-    metricsplus/        # Layered analytical framework
-    reasoning/          # Structured reasoning framework
-  tasks/                # Domain-specific prompts
-    vibecoding/         # The Eight Essential Archetypes
-    coding/             # Code generation, review, optimization
-    writing/            # Content creation and editing
-    analysis/           # Data and content analysis
-    audio/              # Audio/music analysis and generation
-    design/             # Design and visual creation
-  templates/            # Reusable prompt templates
-  chains/               # Multi-step workflows
-  tools/                # Search, indexing, and optimization utilities
+
+**Option B: CLAUDE.md config** -- upgrade your entire project:
+```bash
+cp ai-playbook/claude-code/examples/claude-md-adhd.md CLAUDE.md
 ```
+
+**Option C: Pick a framework** and paste it into any AI conversation:
+```
+🎯 TASK: Implement user auth
+📋 CONTEXT: Cloudflare Workers, JWT, D1 database
+✅ OUTPUT: Working auth middleware with tests
+⚠️ CONSTRAINTS: No session storage, stateless only
+```
+*That's the [ADHD Prompting Framework](frameworks/adhd-prompting/) -- it works everywhere.*
+
+---
 
 ## The Vibecoding System
 
-Eight archetypal personas, each a fusion of multiple philosophical traditions:
+The flagship differentiator. Eight archetypal personas, each a fusion of 3+ wisdom traditions. Not prompt templates -- philosophical lenses that change how the AI thinks.
 
-| Archetype | Essence | Fused From |
-|-----------|---------|------------|
-| **Clarity Architect** | Structural simplicity | Stoic Guardian + Occam's Minimalist + Cognitive Load Theory |
-| **Direct Mirror** | Immediate insight | Zen Mirror + Phenomenological Observer + Mindful Observer |
-| **Flow Director** | Dynamic harmony | Jazz Director + Flow Guide + Wabi-Sabi Craftsperson |
-| **Truth Builder** | Foundational rigor | First Principles Architect + Empiricist + Falsification Challenger |
-| **Pattern Synthesizer** | Holistic integration | Systems Synthesizer + Pattern Analyst + Gestalt Weaver |
-| **Wisdom Guide** | Ethical integration | Confucian Guide + Circle Keeper + Prudent Synthesizer |
-| **Creative Organizer** | Aesthetic function | Bauhaus Architect + Swiss Information + Ma Gardener |
-| **Purpose Seeker** | Authentic discovery | Sufi Seeker + Existential Clarifier + Socratic Investigator |
+<div align="center">
 
-Pick one that resonates. Use it as a system prompt. Combine two for complex problems. [Full documentation](tasks/vibecoding/)
+| | Archetype | Essence | Fused From |
+|---|-----------|---------|------------|
+| 🏰 | **Clarity Architect** | Structural simplicity | Stoic Guardian + Occam's Minimalist + Cognitive Load Theory |
+| 🪞 | **Direct Mirror** | Immediate insight | Zen Mirror + Phenomenological Observer + Mindful Observer |
+| 🎵 | **Flow Director** | Dynamic harmony | Jazz Director + Flow Guide + Wabi-Sabi Craftsperson |
+| 🧱 | **Truth Builder** | Foundational rigor | First Principles Architect + Empiricist + Falsification Challenger |
+| 🔮 | **Pattern Synthesizer** | Holistic integration | Systems Synthesizer + Pattern Analyst + Gestalt Weaver |
+| 🦉 | **Wisdom Guide** | Ethical integration | Confucian Guide + Circle Keeper + Prudent Synthesizer |
+| 📐 | **Creative Organizer** | Aesthetic function | Bauhaus Architect + Swiss Information + Ma Gardener |
+| 🧭 | **Purpose Seeker** | Authentic discovery | Sufi Seeker + Existential Clarifier + Socratic Investigator |
 
-## Frameworks at a glance
+</div>
 
-| Framework | What it does | When to use it |
-|-----------|-------------|----------------|
-| [ADHD Prompting](frameworks/adhd-prompting/) | Front-loads info, uses visual anchors, manages cognitive load | Every interaction (it's a universal upgrade) |
-| [Context Engineering](frameworks/context-engineering/) | Treats context as a measurable, designable field | Long conversations, complex multi-turn tasks |
-| [METRICS+](frameworks/metricsplus/) | 5-layer analysis (direct, meta, pattern, knowledge, emotional) | Deep analysis, decision-making |
-| [Fractal](frameworks/fractal/) | Macro/meso/micro scale reasoning | Architecture decisions, system design |
-| [MCPA](frameworks/mcpa/) | Protocol-driven context and tool orchestration | Multi-tool, multi-modal workflows |
-| [ECARLM](frameworks/ECARLM/) | Cellular automata-inspired state evolution | Complex reasoning chains |
-| [EGAF](frameworks/EGAF/) | Global analysis with structured evaluation | Comprehensive assessments |
-| [ELSF](frameworks/elsf/) | Logic-based synergistic reasoning | Formal analysis, logical derivation |
-| [Reasoning v2](frameworks/reasoning/) | Structured reasoning with verification | Any task requiring rigorous thinking |
+**How to pick:** Choose what resonates, not what sounds most useful. Combine two for complex problems.
+
+| Situation | Try |
+|-----------|-----|
+| Technical complexity | Truth Builder + Pattern Synthesizer |
+| Creative exploration | Flow Director + Purpose Seeker |
+| Overwhelming information | Clarity Architect + Creative Organizer |
+| Unclear objectives | Direct Mirror + Wisdom Guide |
+| Ethical considerations | Wisdom Guide + Purpose Seeker |
+
+[Full archetype documentation](tasks/vibecoding/) -- each includes philosophical foundations, system prompts, and fusion combination guides.
+
+---
+
+## Which Framework Should I Use?
+
+```mermaid
+flowchart TD
+    START{What are you trying to do?} --> OPTIMIZE[Optimize a prompt]
+    START --> ANALYZE[Analyze something deeply]
+    START --> BUILD[Build or design something]
+    START --> REASON[Reason through a problem]
+    START --> PERSONA[Change how the AI thinks]
+
+    OPTIMIZE --> ADHD[**ADHD Prompting**<br/>40-60% token reduction<br/>works everywhere]
+    OPTIMIZE --> CE[**Context Engineering**<br/>long conversations<br/>context window design]
+
+    ANALYZE --> METRICS[**METRICS+**<br/>5-layer analysis<br/>cross-domain insights]
+    ANALYZE --> EGAF[**EGAF**<br/>global analysis<br/>cultural adaptability]
+
+    BUILD --> FRACTAL[**Fractal**<br/>macro/meso/micro<br/>architecture decisions]
+    BUILD --> MCPA[**MCPA**<br/>protocol-based<br/>multi-tool orchestration]
+
+    REASON --> ECARLM[**ECARLM**<br/>state evolution<br/>complex reasoning chains]
+    REASON --> ELSF[**ELSF**<br/>logic-based<br/>formal derivation]
+    REASON --> RV2[**Reasoning v2**<br/>structured verification<br/>general reasoning]
+
+    PERSONA --> VIBE[**Vibecoding**<br/>8 archetypes<br/>philosophical lenses]
+
+    style ADHD fill:#4CAF50,color:#fff
+    style VIBE fill:#9C27B0,color:#fff
+    style FRACTAL fill:#2196F3,color:#fff
+    style METRICS fill:#FF9800,color:#fff
+    style CE fill:#4CAF50,color:#fff
+    style MCPA fill:#2196F3,color:#fff
+    style ECARLM fill:#F44336,color:#fff
+    style EGAF fill:#FF9800,color:#fff
+    style ELSF fill:#F44336,color:#fff
+    style RV2 fill:#F44336,color:#fff
+```
+
+**Start here:** [ADHD Prompting](frameworks/adhd-prompting/) is the universal upgrade -- it makes every other framework work better.
+
+---
+
+## Claude Code Integration
+
+Drop-in skills and CLAUDE.md configurations. The fastest way to use these frameworks.
+
+### Skills (copy to `.claude/commands/`)
+
+| Skill | Framework | What it does |
+|-------|-----------|-------------|
+| [`clarity-architect`](claude-code/skills/clarity-architect.md) | Vibecoding | Structural simplicity lens |
+| [`truth-builder`](claude-code/skills/truth-builder.md) | Vibecoding | First-principles challenge |
+| [`adhd-optimize`](claude-code/skills/adhd-optimize.md) | ADHD Prompting | Rewrite any prompt for 40-60% token reduction |
+| [`context-audit`](claude-code/skills/context-audit.md) | Context Engineering | Audit conversation context efficiency |
+| [`fractal-decompose`](claude-code/skills/fractal-decompose.md) | Fractal | Macro/meso/micro problem decomposition |
+| [`ship-feature`](claude-code/skills/ship-feature.md) | Composite | 5-stage feature development pipeline |
+
+### Example CLAUDE.md Configs
+
+| Config | Best for |
+|--------|----------|
+| [`claude-md-adhd`](claude-code/examples/claude-md-adhd.md) | Any project (universal upgrade) |
+| [`claude-md-fullstack`](claude-code/examples/claude-md-fullstack.md) | Full-stack web development |
+| [`claude-md-research`](claude-code/examples/claude-md-research.md) | Research and analysis |
+
+```bash
+# Quick setup
+cp ai-playbook/claude-code/skills/*.md .claude/commands/
+```
+
+[Full Claude Code docs](claude-code/)
+
+---
+
+## All Frameworks
+
+| Framework | Key Strength | Best For | Complexity |
+|-----------|-------------|----------|------------|
+| [ADHD Prompting](frameworks/adhd-prompting/) | Clarity through constraint | Every interaction (universal upgrade) | Low |
+| [Context Engineering](frameworks/context-engineering/) | Token efficiency & emergence | Long conversations, multi-turn tasks | Low-Medium |
+| [METRICS+](frameworks/metricsplus/) | Pattern recognition | Deep analysis, decision-making | Medium |
+| [Fractal](frameworks/fractal/) | Structured decomposition | Architecture decisions, system design | Medium-High |
+| [MCPA](frameworks/mcpa/) | Protocol-based orchestration | Multi-tool, multi-modal workflows | High |
+| [ECARLM](frameworks/ECARLM/) | Multi-scale state evolution | Complex reasoning chains | High |
+| [EGAF](frameworks/EGAF/) | Cultural adaptability | Global, multi-domain problems | Medium-High |
+| [ELSF](frameworks/elsf/) | Logic & pattern integration | Formal analysis, logical derivation | Medium |
+| [Reasoning v2](frameworks/reasoning/) | Comprehensive reasoning | General problem-solving | Medium |
+
+---
+
+## Repository Structure
+
+```
+ai-playbook/
+  claude-code/              # Drop-in Claude Code skills and CLAUDE.md configs
+    skills/                 # Slash command skills
+    examples/               # Example CLAUDE.md configurations
+  frameworks/               # 9 reasoning and interaction frameworks
+    adhd-prompting/         # Cognitive-constraint-optimized prompting
+    context-engineering/    # Context window as designable system
+    ECARLM/                 # Cellular automata reasoning for LLMs
+    EGAF/                   # Enhanced Global Analysis Framework
+    elsf/                   # Logic-based synergistic reasoning
+    fractal/                # Multi-scale reasoning (macro/meso/micro)
+    mcpa/                   # Modular Context Protocol Architecture
+    metricsplus/            # Layered analytical framework
+    reasoning/              # Structured reasoning methodology
+  tasks/                    # 47 domain-specific prompts
+    vibecoding/             # The Eight Essential Archetypes
+    coding/                 # Code generation, review, optimization
+    writing/                # Content creation and editing
+    analysis/               # Data and content analysis
+    audio/                  # Audio/music analysis and generation
+    design/                 # Design and visual creation
+  chains/                   # Multi-step composite workflows
+  templates/                # Reusable prompt templates
+  tools/                    # Search, indexing, and optimization utilities
+```
+
+---
 
 ## Tools
 
-The `tools/` directory includes utilities that work with this library:
-
-- **ADHD Optimizer** -- transforms any prompt into a context-optimized version (40-60% token reduction). Includes a web UI, Python CLI, and batch mode.
-- **Search** -- multi-mode search across all prompts by keyword, tag, category, or archetype.
-- **Context Analyzer** -- measures token efficiency and suggests optimizations.
-- **Index Builder** -- generates a searchable metadata index from YAML frontmatter.
+Working utilities that ship with the playbook:
 
 ```bash
-# Optimize a prompt
+# Optimize any prompt (40-60% token reduction)
 python tools/adhd-optimizer/optimize.py "Your long prompt here"
 
-# Search by keyword
+# Search all prompts by keyword, tag, or archetype
 python tools/search-prompts.py "code review"
-
-# Search by archetype
 python tools/search-prompts.py -a "Truth Builder"
+
+# Analyze context efficiency
+python tools/context-analyzer.py your-prompt.md
 
 # Rebuild the search index
 python tools/index-prompts.py
 ```
 
-## File format
-
-Each prompt uses YAML frontmatter for metadata:
-
-```markdown
----
-title: "Prompt Title"
-category: "tasks/subcategory"
-tags: ["tag1", "tag2"]
-created: "YYYY-MM-DD"
-updated: "YYYY-MM-DD"
-version: 1.0
 ---
 
-# Prompt Title
+## What Makes This Different
 
-## Context
-When and how to use this prompt.
+This isn't a prompt template collection. Three things set it apart:
 
-## Prompt Content
-The actual prompt text...
-```
+1. **Philosophical depth** -- Vibecoding archetypes are fused from 29 wisdom traditions. They change how the AI thinks, not just what it says.
+
+2. **Composable frameworks** -- Frameworks aren't isolated. The [Ship a Feature chain](chains/ship_feature_chain.md) composes Fractal + Truth Builder + ADHD Prompting + Context Engineering into a single pipeline.
+
+3. **Production-tested** -- Every framework was forged in production across 70+ projects spanning serverless infrastructure, game design, content systems, and more. Not theoretical.
+
+---
 
 ## Contributing
 
-Contributions welcome. Please:
+Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-1. Fork the repository
-2. Follow the file format above
-3. Place content in the appropriate directory
-4. Submit a PR with a clear description
+Priority areas: new chains composing existing frameworks, Claude Code skills for remaining archetypes, domain-specific CLAUDE.md configs.
+
+---
+
+## Stackbilt Open Source
+
+Part of the [Stackbilt](https://stackbilt.dev) open-source ecosystem:
+
+| Project | What it does |
+|---------|-------------|
+| **[AI Playbook](https://github.com/Stackbilt-dev/ai-playbook)** | Frameworks for thinking with AI |
+| **[Charter](https://github.com/Stackbilt-dev/charter)** | AI governance CLI for project context management |
+| **[Contracts](https://github.com/Stackbilt-dev/contracts)** | Type-safe contract ontology for AI agents |
+| **[CodeBeast](https://github.com/Stackbilt-dev/codebeast)** | Adversarial code review agent |
+| **[CC-Taskrunner](https://github.com/Stackbilt-dev/cc-taskrunner)** | Autonomous task queue for Claude Code |
+| **[LLM Providers](https://github.com/Stackbilt-dev/llm-providers)** | Multi-LLM failover with circuit breakers |
+| **[Worker Observability](https://github.com/Stackbilt-dev/worker-observability)** | Edge observability stack |
+
+---
 
 ## Origin
 
-This playbook was extracted from 70+ projects built over two years of intensive AI-native development. The frameworks aren't theoretical -- they were forged in production, refined through thousands of hours of human-AI collaboration, and battle-tested across domains from serverless infrastructure to game design.
+Extracted from 70+ projects built over two years of intensive AI-native development. The frameworks aren't theoretical -- they were forged in production, refined through thousands of hours of human-AI collaboration, and battle-tested across domains from serverless infrastructure to game design.
 
 Built by [Kurt Overmier](https://github.com/kurtovermier) / [Stackbilt](https://stackbilt.dev)
 

@@ -53,9 +53,9 @@ Frameworks focused on systematic problem decomposition and resolution:
 - **[Fractal Framework](./fractal/)** - Multi-scale hierarchical analysis
 - **[Reasoning v2](./reasoning/)** - Comprehensive reasoning methodology
 
-### Architecture Frameworks
-System-level frameworks for AI interaction:
-- **[Modular Context Protocol Architecture (MCPA)](./mcpa/)** - Next-generation protocol-based architecture
+### Multi-Agent Coordination
+Pattern language for systems with 2+ collaborating agents:
+- **[MCPA — Multi-Agent Coordination Pattern Architecture](./mcpa/)** - Routing, shared context, coordination topologies, and evaluation
 
 ## Framework Comparison
 
@@ -69,7 +69,7 @@ System-level frameworks for AI interaction:
 | Fractal | Structured decomposition | Hierarchical problems | Medium-High |
 | METRICS+ | Pattern recognition | Cross-domain insights | Medium |
 | Reasoning v2 | Comprehensive reasoning | General problem solving | Medium |
-| MCPA | Protocol-based architecture | System integration | High |
+| MCPA | Multi-agent coordination | Systems with 2+ agents | Medium-High |
 
 ## How to Use These Frameworks
 

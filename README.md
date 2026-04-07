@@ -96,7 +96,7 @@ flowchart TD
     ANALYZE --> EGAF[**EGAF**<br/>global analysis<br/>cultural adaptability]
 
     BUILD --> FRACTAL[**Fractal**<br/>macro/meso/micro<br/>architecture decisions]
-    BUILD --> MCPA[**MCPA**<br/>protocol-based<br/>multi-tool orchestration]
+    BUILD --> MCPA[**MCPA**<br/>agent coordination<br/>multi-agent systems]
 
     REASON --> ECARLM[**ECARLM**<br/>state evolution<br/>complex reasoning chains]
     REASON --> ELSF[**ELSF**<br/>logic-based<br/>formal derivation]
@@ -160,7 +160,7 @@ cp ai-playbook/claude-code/skills/*.md .claude/commands/
 | [Context Engineering](frameworks/context-engineering/) | Token efficiency & emergence | Long conversations, multi-turn tasks | Low-Medium |
 | [METRICS+](frameworks/metricsplus/) | Pattern recognition | Deep analysis, decision-making | Medium |
 | [Fractal](frameworks/fractal/) | Structured decomposition | Architecture decisions, system design | Medium-High |
-| [MCPA](frameworks/mcpa/) | Protocol-based orchestration | Multi-tool, multi-modal workflows | High |
+| [MCPA](frameworks/mcpa/) | Multi-agent coordination patterns | Systems with 2+ collaborating agents | Medium-High |
 | [ECARLM](frameworks/ECARLM/) | Multi-scale state evolution | Complex reasoning chains | High |
 | [EGAF](frameworks/EGAF/) | Cultural adaptability | Global, multi-domain problems | Medium-High |
 | [ELSF](frameworks/elsf/) | Logic & pattern integration | Formal analysis, logical derivation | Medium |

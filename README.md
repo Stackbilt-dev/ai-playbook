@@ -4,10 +4,10 @@
 
 **Battle-tested frameworks for thinking with AI -- not just talking to it.**
 
-Distilled from 70+ real-world projects. 9 reasoning frameworks, 8 philosophical archetypes, 47 task prompts, and drop-in Claude Code skills.
+Distilled from 70+ real-world projects. 11 reasoning frameworks, 8 philosophical archetypes, 48 task prompts, and drop-in Claude Code skills.
 
 [![Vibecoding Archetypes](https://img.shields.io/badge/Vibecoding_Archetypes-8-purple)](tasks/vibecoding/)
-[![Frameworks](https://img.shields.io/badge/Frameworks-9-blue)](frameworks/)
+[![Frameworks](https://img.shields.io/badge/Frameworks-11-blue)](frameworks/)
 [![Claude Code Skills](https://img.shields.io/badge/Claude_Code_Skills-12-orange)](claude-code/)
 [![Task Prompts](https://img.shields.io/badge/Task_Prompts-47-green)](tasks/)
 [![Templates](https://img.shields.io/badge/Templates-3-teal)](templates/)
@@ -103,6 +103,9 @@ flowchart TD
     REASON --> ELSF[**ELSF**<br/>logic-based<br/>formal derivation]
     REASON --> RV2[**Reasoning v2**<br/>structured verification<br/>general reasoning]
 
+    BUILD --> PROD[**Production AI Patterns**<br/>grounding + hallucination prevention<br/>agentic systems]
+    BUILD --> GOV[**Agent Governance**<br/>authority tiers + constraints<br/>autonomous agents]
+
     PERSONA --> VIBE[**Vibecoding**<br/>8 archetypes<br/>philosophical lenses]
 
     style ADHD fill:#4CAF50,color:#fff
@@ -115,6 +118,8 @@ flowchart TD
     style EGAF fill:#FF9800,color:#fff
     style ELSF fill:#F44336,color:#fff
     style RV2 fill:#F44336,color:#fff
+    style PROD fill:#607D8B,color:#fff
+    style GOV fill:#607D8B,color:#fff
 ```
 
 **Start here:** [ADHD Prompting](frameworks/adhd-prompting/) is the universal upgrade -- it makes every other framework work better.
@@ -141,6 +146,10 @@ Drop-in skills and CLAUDE.md configurations. The fastest way to use these framew
 | [`context-audit`](claude-code/skills/context-audit.md) | Context Engineering | Audit conversation context efficiency |
 | [`fractal-decompose`](claude-code/skills/fractal-decompose.md) | Fractal | Macro/meso/micro problem decomposition |
 | [`ship-feature`](claude-code/skills/ship-feature.md) | Composite | 5-stage feature development pipeline |
+| [`ship`](claude-code/skills/ship.md) | Production | Self-healing release pipeline: pre-flight → typecheck → version → deploy → verify |
+| [`governed-deploy`](claude-code/skills/governed-deploy.md) | Production | Pre-deploy audit gate: blocks on type errors, failing tests, missing version, or secrets in diff |
+| [`adversarial-review`](claude-code/skills/adversarial-review.md) | Production | Adversarial code review — hunt bugs and security issues, CRITICAL/HIGH/MID severity |
+| [`structured-review`](claude-code/skills/structured-review.md) | Production | Balanced PR review rubric: security, correctness, error handling, test coverage |
 
 ### Example CLAUDE.md Configs
 
@@ -176,6 +185,8 @@ done
 | [EGAF](frameworks/EGAF/) | Cultural adaptability | Global, multi-domain problems | Medium-High |
 | [ELSF](frameworks/elsf/) | Logic & pattern integration | Formal analysis, logical derivation | Medium |
 | [Reasoning v2](frameworks/reasoning/) | Comprehensive reasoning | General problem-solving | Medium |
+| [Production AI Patterns](frameworks/production-ai-patterns/) | Grounding + hallucination prevention | Agentic systems that hold up in production | Medium |
+| [Agent Governance](frameworks/agent-governance/) | Authority tiers + constraint surfaces | Running autonomous agents without losing control | Medium |
 
 ---
 
@@ -196,7 +207,9 @@ ai-playbook/
     mcpa/                   # Modular Context Protocol Architecture
     metricsplus/            # Layered analytical framework
     reasoning/              # Structured reasoning methodology
-  tasks/                    # 47 domain-specific prompts
+    production-ai-patterns/ # Selection, grounding, hallucination prevention
+    agent-governance/       # Authority tiers, constraint surfaces, standing orders
+  tasks/                    # 48 domain-specific prompts
     vibecoding/             # The Eight Essential Archetypes
     coding/                 # Code generation, review, optimization
     writing/                # Content creation and editing
@@ -240,6 +253,8 @@ This isn't a prompt template collection. Three things set it apart:
 2. **Composable frameworks** -- Frameworks aren't isolated. The [Ship a Feature chain](chains/ship_feature_chain.md) composes Fractal + Truth Builder + ADHD Prompting + Context Engineering into a single pipeline.
 
 3. **Production-tested** -- Every framework was forged in production across 70+ projects spanning serverless infrastructure, game design, content systems, and more. Not theoretical.
+
+4. **Agentic systems coverage** -- Production AI Patterns and Agent Governance address what most AI frameworks skip: what goes wrong when LLMs run autonomously, and how to structure systems so they don't.
 
 ---
 

@@ -108,14 +108,14 @@ flowchart TD
     OPTIMIZE --> CE[**Context Engineering**<br/>long conversations<br/>context window design]
 
     ANALYZE --> METRICS[**METRICS+**<br/>5-layer analysis<br/>cross-domain insights]
-    ANALYZE --> EGAF[**EGAF** _(experimental)_<br/>global analysis<br/>cultural adaptability]
+    ANALYZE --> EGAF["**EGAF** _(experimental)_<br/>global analysis<br/>cultural adaptability"]
 
     BUILD --> FRACTAL[**Fractal**<br/>macro/meso/micro<br/>architecture decisions]
     BUILD --> MCPA[**MCPA**<br/>agent coordination<br/>multi-agent systems]
 
     REASON --> RV2[**Reasoning v2**<br/>structured verification<br/>general reasoning]
-    REASON --> ECARLM[**ECARLM** _(experimental)_<br/>state evolution<br/>complex reasoning chains]
-    REASON --> ELSF[**ELSF** _(experimental)_<br/>logic-based<br/>formal derivation]
+    REASON --> ECARLM["**ECARLM** _(experimental)_<br/>state evolution<br/>complex reasoning chains"]
+    REASON --> ELSF["**ELSF** _(experimental)_<br/>logic-based<br/>formal derivation"]
 
     BUILD --> PROD[**Production AI Patterns**<br/>grounding + hallucination prevention<br/>agentic systems]
     BUILD --> GOV[**Agent Governance**<br/>authority tiers + constraints<br/>autonomous agents]

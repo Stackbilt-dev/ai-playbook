@@ -225,6 +225,7 @@ Monitor for unexpected capabilities:
 - Karpathy's Context Window Philosophy
 - Neural Field Theory Applications
 - Token Economics Research
+- [Charter](https://github.com/Stackbilt-dev/charter) operationalizes these principles as a CLI: ADF modules with per-module token budgets, trigger-loaded on demand.
 
 ## 🔮 Future Directions
 

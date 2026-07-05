@@ -44,7 +44,7 @@ Choose based on your natural approach to problems:
 ### For Complex Problem-Solving:
 1. Start with **METRICS+** (`frameworks/metricsplus/`) for layered analysis
 2. Apply **Fractal Framework** (`frameworks/fractal/`) for multi-scale thinking
-3. Use **ECARLM** (`frameworks/ECARLM/`) for emergent patterns
+3. Use **ECARLM** (`frameworks/experimental/ECARLM/`) for emergent patterns
 
 ### For Rapid Development:
 1. Begin with **ERTS** (`frameworks/prompt-structure/erts.md`) for structure

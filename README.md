@@ -2,14 +2,14 @@
 
 # AI Playbook
 
-**Battle-tested frameworks for thinking with AI -- not just talking to it.**
+**Named failure modes in AI systems, with the fix -- not more prompting advice.**
 
-Distilled from 70+ real-world projects. 11 reasoning frameworks, 8 philosophical archetypes, 48 task prompts, and drop-in Claude Code skills.
+Extracted from 70+ production projects: *tier laundering* in agent authority, *silence-is-not-absence* hallucination at decision points, and more like it across Agent Governance and Production AI Patterns -- plus 11 reasoning frameworks, 8 philosophical archetypes, and drop-in Claude Code skills.
 
 [![Vibecoding Archetypes](https://img.shields.io/badge/Vibecoding_Archetypes-8-purple)](tasks/vibecoding/)
 [![Frameworks](https://img.shields.io/badge/Frameworks-11-blue)](frameworks/)
-[![Claude Code Skills](https://img.shields.io/badge/Claude_Code_Skills-12-orange)](claude-code/)
-[![Task Prompts](https://img.shields.io/badge/Task_Prompts-47-green)](tasks/)
+[![Claude Code Skills](https://img.shields.io/badge/Claude_Code_Skills-17-orange)](claude-code/)
+[![Task Prompts](https://img.shields.io/badge/Task_Prompts-43-green)](tasks/)
 [![Templates](https://img.shields.io/badge/Templates-3-teal)](templates/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -44,6 +44,18 @@ cp ai-playbook/claude-code/examples/claude-md-adhd.md CLAUDE.md
 ⚠️ CONSTRAINTS: No session storage, stateless only
 ```
 *That's the [ADHD Prompting Framework](frameworks/adhd-prompting/) -- it works everywhere.*
+
+---
+
+## Real Failure Modes, Named
+
+Two examples of what's actually in here -- concrete, production-derived, not generic advice:
+
+> **Tier laundering** -- splitting a high-authority action into multiple low-authority steps that, combined, achieve the same result. Each step looks safe in isolation; the combination isn't. [Full pattern →](frameworks/agent-governance/authority-tiers.md)
+
+> **Silence is not absence** -- when an LLM returns no result or ambiguous output, the failure is treating that gap as confirmation instead of an error. The model doesn't lie -- it completes the pattern, and the system proceeds on a fabrication. [Full pattern →](frameworks/production-ai-patterns/silence-is-not-absence.md)
+
+[Agent Governance](frameworks/agent-governance/) and [Production AI Patterns](frameworks/production-ai-patterns/) cover what most AI frameworks skip: what goes wrong when LLMs run autonomously, and how to catch it before it compounds.
 
 ---
 
@@ -144,6 +156,7 @@ Drop-in skills and CLAUDE.md configurations. The fastest way to use these framew
 | [`purpose-seeker`](claude-code/skills/purpose-seeker.md) | Vibecoding | Authentic discovery — find the real "why" |
 | [`adhd-optimize`](claude-code/skills/adhd-optimize.md) | ADHD Prompting | Rewrite any prompt for 40-60% token reduction |
 | [`context-audit`](claude-code/skills/context-audit.md) | Context Engineering | Audit conversation context efficiency |
+| [`context-delegate`](claude-code/skills/context-delegate.md) | Context Engineering | Keep large inputs out of primary model context with backend-neutral delegation |
 | [`fractal-decompose`](claude-code/skills/fractal-decompose.md) | Fractal | Macro/meso/micro problem decomposition |
 | [`ship-feature`](claude-code/skills/ship-feature.md) | Composite | 5-stage feature development pipeline |
 | [`ship`](claude-code/skills/ship.md) | Production | Self-healing release pipeline: pre-flight → typecheck → version → deploy → verify |

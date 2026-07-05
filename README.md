@@ -12,6 +12,8 @@ Extracted from 70+ production projects: *tier laundering* in agent authority, *s
 [![Task Prompts](https://img.shields.io/badge/Task_Prompts-43-green)](tasks/)
 [![Templates](https://img.shields.io/badge/Templates-3-teal)](templates/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/Stackbilt-dev/ai-playbook)](../../commits)
+[![Open Issues](https://img.shields.io/github/issues/Stackbilt-dev/ai-playbook)](../../issues)
 
 **If this helps you think better with AI, [give it a star](../../stargazers) -- it helps others find it too.**
 

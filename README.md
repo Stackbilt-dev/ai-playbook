@@ -19,6 +19,19 @@ Extracted from 70+ production projects: *tier laundering* in agent authority, *s
 
 </div>
 
+## Using a Coding Agent?
+
+Copy this prompt to add AI Playbook to your project:
+
+```
+Read https://github.com/Stackbilt-dev/ai-playbook and copy the parts
+relevant to this project: Claude Code skills from claude-code/skills/
+into .claude/skills/, and if this project runs autonomous agents, the
+patterns in frameworks/agent-governance/ and
+frameworks/production-ai-patterns/. Follow the repo's Quick Start
+section for exact copy commands.
+```
+
 ---
 
 ## Quick Start (60 seconds)

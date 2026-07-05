@@ -43,12 +43,12 @@ Revolutionary approaches to prompt engineering:
 
 ### Decision-Making Frameworks
 Frameworks optimized for structured decision processes:
-- **[Enhanced Global Analysis Framework (EGAF)](./EGAF/)** - Cultural adaptability and global problem-solving
-- **[Enhanced Logic-Based Synergistic Framework (ELSF)](./elsf/)** - Logic and pattern integration
+- **[Enhanced Global Analysis Framework (EGAF)](./experimental/EGAF/)** _(experimental)_ - Cultural adaptability and global problem-solving
+- **[Enhanced Logic-Based Synergistic Framework (ELSF)](./experimental/elsf/)** _(experimental)_ - Logic and pattern integration
 
 ### Problem-Solving Frameworks
 Frameworks focused on systematic problem decomposition and resolution:
-- **[ECARLM](./ECARLM/)** - Elementary Cellular Automata Reasoning for Language Models
+- **[ECARLM](./experimental/ECARLM/)** _(experimental)_ - Elementary Cellular Automata Reasoning for Language Models
 - **[METRICS+](./metricsplus/)** - Layered analytical framework with pattern recognition
 - **[Fractal Framework](./fractal/)** - Multi-scale hierarchical analysis
 - **[Reasoning v2](./reasoning/)** - Comprehensive reasoning methodology

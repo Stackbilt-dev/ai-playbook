@@ -106,14 +106,14 @@ flowchart TD
     OPTIMIZE --> CE[**Context Engineering**<br/>long conversations<br/>context window design]
 
     ANALYZE --> METRICS[**METRICS+**<br/>5-layer analysis<br/>cross-domain insights]
-    ANALYZE --> EGAF[**EGAF**<br/>global analysis<br/>cultural adaptability]
+    ANALYZE --> EGAF[**EGAF** _(experimental)_<br/>global analysis<br/>cultural adaptability]
 
     BUILD --> FRACTAL[**Fractal**<br/>macro/meso/micro<br/>architecture decisions]
     BUILD --> MCPA[**MCPA**<br/>agent coordination<br/>multi-agent systems]
 
-    REASON --> ECARLM[**ECARLM**<br/>state evolution<br/>complex reasoning chains]
-    REASON --> ELSF[**ELSF**<br/>logic-based<br/>formal derivation]
     REASON --> RV2[**Reasoning v2**<br/>structured verification<br/>general reasoning]
+    REASON --> ECARLM[**ECARLM** _(experimental)_<br/>state evolution<br/>complex reasoning chains]
+    REASON --> ELSF[**ELSF** _(experimental)_<br/>logic-based<br/>formal derivation]
 
     BUILD --> PROD[**Production AI Patterns**<br/>grounding + hallucination prevention<br/>agentic systems]
     BUILD --> GOV[**Agent Governance**<br/>authority tiers + constraints<br/>autonomous agents]
@@ -126,10 +126,10 @@ flowchart TD
     style METRICS fill:#FF9800,color:#fff
     style CE fill:#4CAF50,color:#fff
     style MCPA fill:#2196F3,color:#fff
-    style ECARLM fill:#F44336,color:#fff
-    style EGAF fill:#FF9800,color:#fff
-    style ELSF fill:#F44336,color:#fff
     style RV2 fill:#F44336,color:#fff
+    style ECARLM fill:#9E9E9E,color:#fff,stroke-dasharray:5 5
+    style EGAF fill:#9E9E9E,color:#fff,stroke-dasharray:5 5
+    style ELSF fill:#9E9E9E,color:#fff,stroke-dasharray:5 5
     style PROD fill:#607D8B,color:#fff
     style GOV fill:#607D8B,color:#fff
 ```
@@ -194,12 +194,19 @@ done
 | [METRICS+](frameworks/metricsplus/) | Pattern recognition | Deep analysis, decision-making | Medium |
 | [Fractal](frameworks/fractal/) | Structured decomposition | Architecture decisions, system design | Medium-High |
 | [MCPA](frameworks/mcpa/) | Multi-agent coordination patterns | Systems with 2+ collaborating agents | Medium-High |
-| [ECARLM](frameworks/ECARLM/) | Multi-scale state evolution | Complex reasoning chains | High |
-| [EGAF](frameworks/EGAF/) | Cultural adaptability | Global, multi-domain problems | Medium-High |
-| [ELSF](frameworks/elsf/) | Logic & pattern integration | Formal analysis, logical derivation | Medium |
 | [Reasoning v2](frameworks/reasoning/) | Comprehensive reasoning | General problem-solving | Medium |
 | [Production AI Patterns](frameworks/production-ai-patterns/) | Grounding + hallucination prevention | Agentic systems that hold up in production | Medium |
 | [Agent Governance](frameworks/agent-governance/) | Authority tiers + constraint surfaces | Running autonomous agents without losing control | Medium |
+
+### Experimental
+
+Earlier-stage frameworks kept for reference — thinner and more conceptual than the ones above. Live in [`frameworks/experimental/`](frameworks/experimental/).
+
+| Framework | Key Strength | Best For | Complexity |
+|-----------|-------------|----------|------------|
+| [ECARLM](frameworks/experimental/ECARLM/) | Multi-scale state evolution | Complex reasoning chains | High |
+| [EGAF](frameworks/experimental/EGAF/) | Cultural adaptability | Global, multi-domain problems | Medium-High |
+| [ELSF](frameworks/experimental/elsf/) | Logic & pattern integration | Formal analysis, logical derivation | Medium |
 
 ---
 
@@ -210,18 +217,19 @@ ai-playbook/
   claude-code/              # Drop-in Claude Code skills and CLAUDE.md configs
     skills/                 # Slash command skills
     examples/               # Example CLAUDE.md configurations
-  frameworks/               # 9 reasoning and interaction frameworks
+  frameworks/               # Reasoning and interaction frameworks
     adhd-prompting/         # Cognitive-constraint-optimized prompting
     context-engineering/    # Context window as designable system
-    ECARLM/                 # Cellular automata reasoning for LLMs
-    EGAF/                   # Enhanced Global Analysis Framework
-    elsf/                   # Logic-based synergistic reasoning
     fractal/                # Multi-scale reasoning (macro/meso/micro)
     mcpa/                   # Modular Context Protocol Architecture
     metricsplus/            # Layered analytical framework
     reasoning/              # Structured reasoning methodology
     production-ai-patterns/ # Selection, grounding, hallucination prevention
     agent-governance/       # Authority tiers, constraint surfaces, standing orders
+    experimental/           # Earlier-stage, thinner frameworks kept for reference
+      ECARLM/               # Cellular automata reasoning for LLMs
+      EGAF/                 # Enhanced Global Analysis Framework
+      elsf/                 # Logic-based synergistic reasoning
   tasks/                    # 48 domain-specific prompts
     vibecoding/             # The Eight Essential Archetypes
     coding/                 # Code generation, review, optimization

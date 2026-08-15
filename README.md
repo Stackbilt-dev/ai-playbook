@@ -4,7 +4,7 @@
 
 **Named failure modes in AI systems, with the fix -- not more prompting advice.**
 
-Extracted from 70+ production projects: *tier laundering* in agent authority, *silence-is-not-absence* hallucination at decision points, and more like it across Agent Governance and Production AI Patterns -- plus 11 reasoning frameworks, 8 philosophical archetypes, and drop-in Claude Code skills.
+Extracted from 70+ production projects: *tier laundering* in agent authority, *silence-is-not-absence* hallucination at decision points, governed multi-actor workflows in MCPA v3, and more like it across Agent Governance and Production AI Patterns -- plus 11 reasoning frameworks, 8 philosophical archetypes, and drop-in Claude Code skills.
 
 [![Vibecoding Archetypes](https://img.shields.io/badge/Vibecoding_Archetypes-8-purple)](tasks/vibecoding/)
 [![Frameworks](https://img.shields.io/badge/Frameworks-11-blue)](frameworks/)
@@ -28,8 +28,10 @@ Read https://github.com/Stackbilt-dev/ai-playbook and copy the parts
 relevant to this project: Claude Code skills from claude-code/skills/
 into .claude/skills/, and if this project runs autonomous agents, the
 patterns in frameworks/agent-governance/ and
-frameworks/production-ai-patterns/. Follow the repo's Quick Start
-section for exact copy commands.
+frameworks/production-ai-patterns/. For durable workflows involving
+agents, services, humans, approvals, or side effects, also read
+frameworks/mcpa/. Follow the repo's Quick Start section for exact copy
+commands.
 ```
 
 ---
@@ -71,6 +73,32 @@ Two examples of what's actually in here -- concrete, production-derived, not gen
 > **Silence is not absence** -- when an LLM returns no result or ambiguous output, the failure is treating that gap as confirmation instead of an error. The model doesn't lie -- it completes the pattern, and the system proceeds on a fabrication. [Full pattern →](frameworks/production-ai-patterns/silence-is-not-absence.md)
 
 [Agent Governance](frameworks/agent-governance/) and [Production AI Patterns](frameworks/production-ai-patterns/) cover what most AI frameworks skip: what goes wrong when LLMs run autonomously, and how to catch it before it compounds.
+
+---
+
+## MCPA v3: Governed Multi-Actor Workflows
+
+Most agent frameworks stop at choosing an agent and generating an answer. Production work continues: evidence must be verified, durable state must change, authority must be checked, a human may need to approve, and an external system may commit the result.
+
+[MCPA v3](frameworks/mcpa/) models that full path. “Actor” includes AI agents, deterministic services, humans, policy gates, state machines, and external tools.
+
+```text
+work item → route by capability + authority → verify evidence
+          → validate state transition → approve if required → commit side effect
+```
+
+Start with the pattern matching your system:
+
+| Need | Pattern |
+|------|---------|
+| Define what each participant may know and do | [Governed Actor Primitives](frameworks/mcpa/patterns/governed-actor-primitives.md) |
+| Keep work durable across model calls | [Work-Item Lifecycle](frameworks/mcpa/patterns/work-item-lifecycle.md) |
+| Distinguish “can do” from “may do now” | [Authority-Aware Routing](frameworks/mcpa/patterns/authority-routing.md) |
+| Block advancement when facts are missing | [Evidence Gates](frameworks/mcpa/patterns/evidence-gates.md) |
+| Separate drafting, approval, and execution | [Commitment Gates](frameworks/mcpa/patterns/commitment-gates.md) |
+| Measure safety and business outcomes | [Workflow Evaluation](frameworks/mcpa/patterns/workflow-evaluation.md) |
+
+See the [Governed Revenue Funnel](frameworks/mcpa/patterns/governed-revenue-funnel.md) for a complete reference architecture that composes all six patterns.
 
 ---
 
@@ -149,7 +177,7 @@ flowchart TD
     style GOV fill:#607D8B,color:#fff
 ```
 
-**Start here:** [ADHD Prompting](frameworks/adhd-prompting/) is the universal upgrade -- it makes every other framework work better.
+**Start here:** Use [ADHD Prompting](frameworks/adhd-prompting/) to improve individual interactions. If the work persists across calls or can affect the outside world, use [MCPA v3](frameworks/mcpa/) with [Agent Governance](frameworks/agent-governance/).
 
 ---
 
@@ -236,7 +264,7 @@ ai-playbook/
     adhd-prompting/         # Cognitive-constraint-optimized prompting
     context-engineering/    # Context window as designable system
     fractal/                # Multi-scale reasoning (macro/meso/micro)
-    mcpa/                   # Modular Context Protocol Architecture
+    mcpa/                   # Multi-Actor Coordination Pattern Architecture
     metricsplus/            # Layered analytical framework
     reasoning/              # Structured reasoning methodology
     production-ai-patterns/ # Selection, grounding, hallucination prevention
@@ -282,7 +310,7 @@ python tools/index-prompts.py
 
 ## What Makes This Different
 
-This isn't a prompt template collection. Three things set it apart:
+This isn't a prompt template collection. Four things set it apart:
 
 1. **Philosophical depth** -- Vibecoding archetypes are fused from 29 wisdom traditions. They change how the AI thinks, not just what it says.
 
@@ -290,7 +318,7 @@ This isn't a prompt template collection. Three things set it apart:
 
 3. **Production-tested** -- Every framework was forged in production across 70+ projects spanning serverless infrastructure, game design, content systems, and more. Not theoretical.
 
-4. **Agentic systems coverage** -- Production AI Patterns and Agent Governance address what most AI frameworks skip: what goes wrong when LLMs run autonomously, and how to structure systems so they don't.
+4. **Agentic systems coverage** -- MCPA v3, Production AI Patterns, and Agent Governance cover the full operational path: multi-actor coordination, durable state, evidence, authority, approval, side effects, and failure containment.
 
 ---
 
@@ -298,7 +326,7 @@ This isn't a prompt template collection. Three things set it apart:
 
 Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Priority areas: new chains composing existing frameworks, Claude Code skills for remaining archetypes, domain-specific CLAUDE.md configs.
+Priority areas: governed-workflow reference architectures, cross-framework chains, workflow evaluation examples, and domain-specific CLAUDE.md configs.
 
 ---
 

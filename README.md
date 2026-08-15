@@ -124,7 +124,7 @@ flowchart TD
     ANALYZE --> EGAF["**EGAF** _(experimental)_<br/>global analysis<br/>cultural adaptability"]
 
     BUILD --> FRACTAL[**Fractal**<br/>macro/meso/micro<br/>architecture decisions]
-    BUILD --> MCPA[**MCPA**<br/>agent coordination<br/>multi-agent systems]
+    BUILD --> MCPA[**MCPA**<br/>multi-actor coordination<br/>governed agent workflows]
 
     REASON --> RV2[**Reasoning v2**<br/>structured verification<br/>general reasoning]
     REASON --> ECARLM["**ECARLM** _(experimental)_<br/>state evolution<br/>complex reasoning chains"]
@@ -208,7 +208,7 @@ done
 | [Context Engineering](frameworks/context-engineering/) | Token efficiency & emergence | Long conversations, multi-turn tasks | Low-Medium |
 | [METRICS+](frameworks/metricsplus/) | Pattern recognition | Deep analysis, decision-making | Medium |
 | [Fractal](frameworks/fractal/) | Structured decomposition | Architecture decisions, system design | Medium-High |
-| [MCPA](frameworks/mcpa/) | Multi-agent coordination patterns | Systems with 2+ collaborating agents | Medium-High |
+| [MCPA](frameworks/mcpa/) | Multi-actor coordination + governed workflows | Agent systems with durable state, humans, or side effects | Medium-High |
 | [Reasoning v2](frameworks/reasoning/) | Comprehensive reasoning | General problem-solving | Medium |
 | [Production AI Patterns](frameworks/production-ai-patterns/) | Grounding + hallucination prevention | Agentic systems that hold up in production | Medium |
 | [Agent Governance](frameworks/agent-governance/) | Authority tiers + constraint surfaces | Running autonomous agents without losing control | Medium |

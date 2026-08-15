@@ -8,6 +8,7 @@ Extracted from 70+ production projects: *tier laundering* in agent authority, *s
 
 [![Vibecoding Archetypes](https://img.shields.io/badge/Vibecoding_Archetypes-8-purple)](tasks/vibecoding/)
 [![Frameworks](https://img.shields.io/badge/Frameworks-11-blue)](frameworks/)
+[![Field Guides](https://img.shields.io/badge/Field_Guides-1-0f766e)](field-guides/)
 [![Claude Code Skills](https://img.shields.io/badge/Claude_Code_Skills-17-orange)](claude-code/)
 [![Task Prompts](https://img.shields.io/badge/Task_Prompts-43-green)](tasks/)
 [![Templates](https://img.shields.io/badge/Templates-3-teal)](templates/)
@@ -100,6 +101,8 @@ Start with the pattern matching your system:
 
 See the [Governed Revenue Funnel](frameworks/mcpa/patterns/governed-revenue-funnel.md) for a complete reference architecture that composes all six patterns.
 
+For the reasoning discipline before a governed transition—context, claims, evidence, uncertainty, convergence, and promotion—read [*The Shape of Judgment*](field-guides/the-shape-of-judgment/).
+
 ---
 
 ## The Vibecoding System
@@ -149,14 +152,14 @@ flowchart TD
     OPTIMIZE --> CE[**Context Engineering**<br/>long conversations<br/>context window design]
 
     ANALYZE --> METRICS[**METRICS+**<br/>5-layer analysis<br/>cross-domain insights]
-    ANALYZE --> EGAF["**EGAF** _(experimental)_<br/>global analysis<br/>cultural adaptability"]
+    ANALYZE --> EGAF["**EGAF** _(experimental)_<br/>context-mapping checklist<br/>validity untested"]
 
     BUILD --> FRACTAL[**Fractal**<br/>macro/meso/micro<br/>architecture decisions]
     BUILD --> MCPA[**MCPA**<br/>multi-actor coordination<br/>governed agent workflows]
 
     REASON --> RV2[**Reasoning v2**<br/>structured verification<br/>general reasoning]
-    REASON --> ECARLM["**ECARLM** _(experimental)_<br/>state evolution<br/>complex reasoning chains"]
-    REASON --> ELSF["**ELSF** _(experimental)_<br/>logic-based<br/>formal derivation"]
+    REASON --> ECARLM["**ECARLM** _(experimental)_<br/>iterative-state concept<br/>no implementation"]
+    REASON --> ELSF["**ELSF** _(experimental)_<br/>claim-audit checklist<br/>semantics unspecified"]
 
     BUILD --> PROD[**Production AI Patterns**<br/>grounding + hallucination prevention<br/>agentic systems]
     BUILD --> GOV[**Agent Governance**<br/>authority tiers + constraints<br/>autonomous agents]
@@ -243,13 +246,23 @@ done
 
 ### Experimental
 
-Earlier-stage frameworks kept for reference — thinner and more conceptual than the ones above. Live in [`frameworks/experimental/`](frameworks/experimental/).
+Earlier-stage frameworks kept for research and reference. They are not recommended defaults. Their [maturity index](frameworks/experimental/) names the testable kernel, unsupported claims, required evaluations, and graduation or retirement criteria for each one.
 
-| Framework | Key Strength | Best For | Complexity |
-|-----------|-------------|----------|------------|
-| [ECARLM](frameworks/experimental/ECARLM/) | Multi-scale state evolution | Complex reasoning chains | High |
-| [EGAF](frameworks/experimental/EGAF/) | Cultural adaptability | Global, multi-domain problems | Medium-High |
-| [ELSF](frameworks/experimental/elsf/) | Logic & pattern integration | Formal analysis, logical derivation | Medium |
+| Framework | Research kernel | Status |
+|-----------|-----------------|--------|
+| [ECARLM](frameworks/experimental/ECARLM/) | Iterative state updates and bounded local rules | Concept; no implementation or benchmark |
+| [EGAF](frameworks/experimental/EGAF/) | Context, assumptions, stakeholders, and resource constraints | Checklist; contextual validity untested |
+| [ELSF](frameworks/experimental/elsf/) | Separate claim consistency from pattern evidence | Checklist; formal semantics unspecified |
+
+## Field Guides
+
+Field guides combine several frameworks into an opinionated practice for a recurring real-world problem.
+
+| Guide | Central question | Status |
+|-------|------------------|--------|
+| [*The Shape of Judgment*](field-guides/the-shape-of-judgment/) | How should an AI system turn ambiguous context into governed action? | `0.1.0` public draft |
+
+The guide includes ten chapters, a decision record, and an experiment-and-promotion worksheet. It refines the useful kernels of the experimental frameworks while making their evidence limitations explicit.
 
 ---
 
@@ -273,6 +286,8 @@ ai-playbook/
       ECARLM/               # Cellular automata reasoning for LLMs
       EGAF/                 # Enhanced Global Analysis Framework
       elsf/                 # Logic-based synergistic reasoning
+  field-guides/             # Cross-framework, end-to-end practices
+    the-shape-of-judgment/  # Context, evidence, state, authority, and feedback
   tasks/                    # 48 domain-specific prompts
     vibecoding/             # The Eight Essential Archetypes
     coding/                 # Code generation, review, optimization
@@ -316,7 +331,7 @@ This isn't a prompt template collection. Four things set it apart:
 
 2. **Composable frameworks** -- Frameworks aren't isolated. The [Ship a Feature chain](chains/ship_feature_chain.md) composes Fractal + Truth Builder + ADHD Prompting + Context Engineering into a single pipeline.
 
-3. **Production-tested** -- Every framework was forged in production across 70+ projects spanning serverless infrastructure, game design, content systems, and more. Not theoretical.
+3. **Evidence boundaries** -- Maintained production patterns are separated from explicitly experimental concepts, with maturity, evaluation, promotion, and retirement criteria.
 
 4. **Agentic systems coverage** -- MCPA v3, Production AI Patterns, and Agent Governance cover the full operational path: multi-actor coordination, durable state, evidence, authority, approval, side effects, and failure containment.
 

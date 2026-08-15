@@ -17,6 +17,16 @@ Thanks for your interest in contributing. This playbook grows through real-world
 2. Include a `README.md` with overview, core concepts, and usage examples
 3. Keep frameworks self-contained -- they should work independently
 
+### Adding a field guide
+
+1. Create a lowercase, hyphenated directory under `field-guides/`
+2. Include a `README.md` with audience, argument, contents, limitations, and edition status
+3. Teach portable principles and name the failure mode before the mechanism
+4. Distinguish observations, inferences, preferences, obligations, and experimental hypotheses
+5. Include an inspectable worksheet, checklist, or review artifact
+6. State what would falsify the recommendation and what must remain non-authoritative while evidence is incomplete
+7. Link the source frameworks without presenting experimental claims as established results
+
 ### Improving existing content
 
 - Fix typos, clarify explanations, add examples

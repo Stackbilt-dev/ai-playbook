@@ -1,5 +1,11 @@
 # Enhanced Global Analysis Framework (EGAF)
 
+> **Status: experimental checklist.** The method makes context, assumptions, culture, resources, and validation visible, but it has not demonstrated universal or cross-cultural validity. Treat those properties as questions to test with affected stakeholders. Review the [experimental maturity card](../README.md#egaf-maturity-card) before use.
+
+## Current Evidence Boundary
+
+The overview below is preserved as the original proposal. “Universal applicability,” cultural fit, and resource optimization are intended evaluation targets, not established results. A responsible use should identify who supplied each contextual claim, involve affected stakeholders in validation, measure divergent outcomes, and abstain rather than fill missing context with stereotypes. For the practical synthesis, read [Context Is Local, Not Universal](../../../field-guides/the-shape-of-judgment/chapters/02-context-is-local.md).
+
 ## Overview
 
 The Enhanced Global Analysis Framework (EGAF) is a robust methodology designed to tackle complex problems across diverse domains while ensuring cultural adaptability, resource optimization, and universal applicability. EGAF operates through a multi-layered structure, integrating meta-analysis, implementation, and validation processes to produce effective, innovative, and context-sensitive solutions.

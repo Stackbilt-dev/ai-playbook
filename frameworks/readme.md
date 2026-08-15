@@ -43,19 +43,25 @@ Revolutionary approaches to prompt engineering:
 
 ### Decision-Making Frameworks
 Frameworks optimized for structured decision processes:
-- **[Enhanced Global Analysis Framework (EGAF)](./experimental/EGAF/)** _(experimental)_ - Cultural adaptability and global problem-solving
-- **[Enhanced Logic-Based Synergistic Framework (ELSF)](./experimental/elsf/)** _(experimental)_ - Logic and pattern integration
+- **[Enhanced Global Analysis Framework (EGAF)](./experimental/EGAF/)** _(experimental)_ - Context and constraints checklist; cross-context validity is not yet evaluated
+- **[Enhanced Logic-Based Synergistic Framework (ELSF)](./experimental/elsf/)** _(experimental)_ - Claim and pattern separation; formal semantics are not yet specified
 
 ### Problem-Solving Frameworks
 Frameworks focused on systematic problem decomposition and resolution:
-- **[ECARLM](./experimental/ECARLM/)** _(experimental)_ - Elementary Cellular Automata Reasoning for Language Models
+- **[ECARLM](./experimental/ECARLM/)** _(experimental)_ - Iterative state-update concept; no implementation or benchmark is included
 - **[METRICS+](./metricsplus/)** - Layered analytical framework with pattern recognition
 - **[Fractal Framework](./fractal/)** - Multi-scale hierarchical analysis
 - **[Reasoning v2](./reasoning/)** - Comprehensive reasoning methodology
 
-### Multi-Agent Coordination
-Pattern language for systems with 2+ collaborating agents:
-- **[MCPA — Multi-Agent Coordination Pattern Architecture](./mcpa/)** - Routing, shared context, coordination topologies, and evaluation
+### Multi-Actor Coordination
+Pattern language for systems where agents, deterministic services, humans, policies, state machines, and external tools share an outcome:
+- **[MCPA — Multi-Actor Coordination Pattern Architecture](./mcpa/)** - Coordination, durable lifecycle state, evidence, authority, commitment, and workflow evaluation
+
+### Experimental Frameworks
+
+Read the [experimental maturity index](./experimental/) before using ECARLM, EGAF, or ELSF. Experimental entries are research inputs rather than recommended defaults. Promotion requires bounded semantics, representative evaluation, observable failure behavior, and an explicit authority boundary.
+
+The useful kernels are synthesized into an applied decision discipline in [*The Shape of Judgment*](../field-guides/the-shape-of-judgment/).
 
 ## Framework Comparison
 
@@ -63,13 +69,13 @@ Pattern language for systems with 2+ collaborating agents:
 |-----------|--------------|----------|------------|
 | Context Engineering | Token efficiency & emergence | All prompts - optimization layer | Low-Medium |
 | ADHD Prompting | Clarity through constraint | Token optimization & consistency | Low |
-| ECARLM | Multi-scale state evolution | Complex systems modeling | High |
-| EGAF | Cultural adaptability | Global, multi-domain problems | Medium-High |
-| ELSF | Logic and pattern integration | Technical problem-solving | Medium |
+| ECARLM _(experimental)_ | Iterative state updates | Testable reasoning research | High |
+| EGAF _(experimental)_ | Context and constraints | Testable contextual analysis | Medium-High |
+| ELSF _(experimental)_ | Claim and pattern separation | Testable claim audit | Medium |
 | Fractal | Structured decomposition | Hierarchical problems | Medium-High |
 | METRICS+ | Pattern recognition | Cross-domain insights | Medium |
 | Reasoning v2 | Comprehensive reasoning | General problem solving | Medium |
-| MCPA | Multi-agent coordination | Systems with 2+ agents | Medium-High |
+| MCPA | Multi-actor governed workflows | Durable work with agents, services, humans, or effects | Medium-High |
 
 ## How to Use These Frameworks
 

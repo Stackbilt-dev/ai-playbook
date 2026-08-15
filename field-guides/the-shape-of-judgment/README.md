@@ -4,7 +4,7 @@
 
 **Stackbilt field notes**
 
-**Edition:** `0.1.0` public draft
+**Edition:** `0.2.0` public draft
 
 Models detect patterns and generate interpretations. A dependable system still has to decide which patterns count as evidence, which rules remain invariant, how context changes the decision, and who has authority to act.
 
@@ -51,13 +51,26 @@ It is not a guide to choosing a model, writing a clever chain-of-thought prompt,
 
 7. [Capability Is Not Authority](chapters/07-capability-is-not-authority.md)
 8. [Feedback Without Policy Drift](chapters/08-feedback-without-policy-drift.md)
-9. [Case File: A Governed Revenue Decision](chapters/09-governed-revenue-decision.md)
+9. [Case File: The Lead That Stopped](chapters/09-governed-revenue-decision.md)
 10. [The Judgment Review](chapters/10-judgment-review.md)
+11. [Case File: The Silent Loop](chapters/11-the-silent-loop.md)
 
 ## Worksheets
 
 - [Decision Record](worksheets/decision-record.md)
 - [Experiment and Promotion Card](worksheets/experiment-and-promotion-card.md)
+
+## Reproducible Export
+
+The guide includes a small Node-based exporter under `export/`. It builds a
+reader-facing HTML edition, EPUB, HTML bundle, PDF, and reviewer manifest from
+the Markdown sources. Run `npm install` once in that directory, then:
+
+```bash
+npm run build
+npm run render:pdf
+npm run verify
+```
 
 ## Recurring Review Questions
 

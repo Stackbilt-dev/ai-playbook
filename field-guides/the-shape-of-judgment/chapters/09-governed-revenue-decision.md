@@ -1,84 +1,107 @@
-# 9. Case File: A Governed Revenue Decision
+# 9. Case File: The Lead That Stopped
 
-Consider a sales-assistance system asked to find a promising organization and help a representative approach it. The example is generic; it demonstrates decision boundaries, not a particular product architecture or performance claim.
+This case comes from the Stackbilt sales-rep implementation and its first
+no-send dry run. It is useful because the system did several things correctly,
+then refused to do the thing the original request appeared to ask for.
 
-## The Compressed Request
+## The Request
 
 > Find a good prospect and reach out with the right offer.
 
-That sentence contains at least four decisions:
+The request compresses discovery, diagnosis, qualification, offer selection,
+personalization, permission, and delivery into one sentence. A single agent
+could produce a persuasive answer while quietly inventing a contact, stale
+offer details, or permission to communicate.
 
-1. Is the organization a legitimate candidate?
-2. Is there enough evidence to qualify it?
-3. Which offer, if any, fits the observed need?
-4. Is contact permitted, and who may send it?
+## Context and Actors
 
-Combining them into one agent turn invites specification, evidence, and authority laundering.
+The implemented workflow separates the actors:
 
-## Context Map
+| Actor | Contribution | Authority boundary |
+|---|---|---|
+| Public-signal scout | Finds a candidate | May observe and propose |
+| Website audit | Produces technical observations | May not infer buying intent |
+| Deterministic qualifier | Scores need and readiness | May qualify, block, or route |
+| Offer catalog | Supplies current offer, constraints, and CTA | Canonical for commercial facts |
+| Sales-rep agent | Prepares a draft | May not send |
+| Human operator | Reviews a proposed message | Owns commitment |
+| Delivery service | Sends an approved message | Requires an approval-bound receipt |
 
-The system records the target market, offer catalog version, permitted contact regions, opt-out rules, public-source policy, pricing authority, and who owns outreach approval. It does not infer consent or purchasing authority from a job title.
+This is a workflow of mixed actors, not a chain of interchangeable agents.
 
-## Claim Ledger
+## Evidence Ledger
 
-An audit may create claims such as:
+The dry run used a public seed target. Houston A/C Solutions timed out and
+failed closed. Lyons Electric returned HTTP 200 and produced this decision
+record:
 
-| Claim | Type | Evidence status | Decision use |
-|-------|------|-----------------|--------------|
-| The site lacks a machine-readable guidance file | Observation | Verified public response | Candidate need |
-| The organization is investing in AI discovery | Inference | Weak; no primary confirmation | Research priority only |
-| A named person controls this budget | Inference | Unsupported | Must not support outreach |
-| The recommended offer is available at the quoted price | Observation/policy | Catalog version required | Draft eligibility |
+| Fact | Result | What it may support |
+|---|---|---|
+| Technical audit | `84/100`, high opportunity | A technical problem hypothesis |
+| Sales qualification | `73/100`, medium, qualified | A research and pipeline state |
+| Offer match | AI Visibility Desk design-partner program | A catalog-backed recommendation |
+| Public price | None | No price claim |
+| Named contact | Not verified | No personalized outreach |
+| Direct contact path | Not verified | No draft or send |
 
-The first claim can support a technical finding. It cannot establish buying intent. The second can prioritize more research but should not become sales copy. The third blocks personalization until verified. The fourth must come from the canonical catalog, not model memory.
+The audit's score and the sales score answered different questions. Neither
+score established consent, purchasing authority, or contact permission.
 
-## Lifecycle
+## The Decision State
 
-```text
-discovered
-  → audited
-  → evidence_pending | qualified | disqualified
-  → draft_ready
-  → approval_required
-  → approved
-  → sent
-  → replied | opted_out | closed
-```
-
-Protected transitions have explicit gates:
-
-- `qualified` requires a verified problem, offer fit, and no disqualifying conflict;
-- `draft_ready` requires a named audience and canonical claims;
-- `approved` requires an authorized reviewer bound to the exact draft;
-- `sent` requires an approved proposal, permitted channel, idempotency key, and delivery receipt;
-- `opted_out` prevents reopening without a new lawful basis and policy review.
-
-## Honest Dry Run
-
-Suppose the audit finds a strong technical issue and a plausible offer fit but no verified contact or permission basis. The correct result is:
+The durable result was:
 
 ```yaml
-stage: evidence_pending
-next_action: verify contact and outreach permission
-recommended_offer: design-partner program
+technical_opportunity: high
+sales_qualification: qualified
+recommended_offer: AI Visibility Desk design-partner program
+communication_state: not_drafted
 draft_allowed: false
 send_allowed: false
+next_action: contact enrichment
+blocker: no verified named contact or direct contact path
 ```
 
-This is not agent failure. The system found a valuable lead and stopped at the evidence boundary.
+The system did not convert a strong technical signal into an invented person
+or a permission claim. It preserved the useful work and named the next valid
+transition.
 
-## Field Test
+## Why This Is Judgment
 
-Run the funnel with:
+The important output was not a paragraph of sales copy. It was a bounded state
+update:
 
-- a strong technical fit but no contact evidence;
-- a named contact who has opted out;
-- a weak fit with complete contact data;
-- an invented discount requested in the prompt;
-- a duplicate send after a timeout.
+```text
+public signal
+  → audit
+  → technical opportunity
+  → sales qualification
+  → evidence gate
+  → hold for contact evidence
+```
 
-The system should hold, deny, or reconcile rather than allowing one strong signal to override another gate.
+The evidence gate protected the external side effect. The catalog protected
+commercial truth. The missing-contact blocker protected the recipient. The
+draft-only boundary protected the operator from an accidental commitment.
+
+## Field Tests
+
+Replay the workflow with these fixtures:
+
+1. A strong technical fit with no contact evidence.
+2. A named contact who has opted out.
+3. Complete contact data but weak technical fit.
+4. A prompt that requests an invented discount.
+5. A delivery timeout followed by a retry.
+
+Expected outcomes are hold, deny, disqualify, catalog rejection, and
+idempotent reconciliation—not a more confident message.
 
 ## Transferable Lesson
 
-Revenue pressure does not change the structure of evidence. It makes disciplined separation more important: discovery is not qualification, qualification is not permission, a draft is not a commitment, and delivery is not a positive outcome.
+Revenue pressure does not change the structure of evidence. Discovery is not
+qualification; qualification is not permission; a draft is not a commitment;
+and a technical score is not buying intent.
+
+Source receipts: [MCPA v3 governed workflows](https://github.com/Stackbilt-dev/aegis/blob/main/docs/research/mcpa-v3-governed-workflows.md),
+[sales-rep handoff](https://github.com/Stackbilt-dev/aegis/blob/main/docs/handoffs/2026-08-14-sales-rep-mcpa-field-guide.md).

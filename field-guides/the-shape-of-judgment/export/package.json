@@ -1,0 +1,14 @@
+{
+  "name": "the-shape-of-judgment-export",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "render:pdf": "node render-pdf.mjs",
+    "verify": "node verify.mjs"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "markdown-it": "^14.1.0"
+  }
+}

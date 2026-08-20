@@ -46,6 +46,18 @@ A draft can be useful without being sent. A proposed database change can be revi
 
 Preserve that distinction in state and tools. Avoid one method whose behavior changes from “preview” to “execute” based on prose in the prompt.
 
+## Evaluation Is Not Authorization
+
+An evaluator may produce evidence about an action. It does not thereby gain
+authority to approve that action. A second model can find defects in a first
+model's work while sharing its blind spots, misunderstanding the business
+requirement, or producing a confident false negative.
+
+Record who produced the work, who evaluated it, what meaningful independence
+exists between them, what the evaluation is allowed to block, and who remains
+accountable for approval. Automated review may be a useful advisory or denial
+signal without being sufficient evidence for commitment.
+
 ## Tradeoff
 
 Gates introduce latency and can frustrate users if approvals are repetitive or unclear. Make the approval specific, display the exact effect, and promote only well-evaluated recurring actions into narrower pre-approved authority.
@@ -53,6 +65,10 @@ Gates introduce latency and can frustrate users if approvals are repetitive or u
 ## Field Test
 
 Split one consequential effect across several benign-looking tool calls. Verify that effect-level policy still recognizes the combined action and requires the same authority.
+
+Then give an automated evaluator an apparently clean result containing a
+domain-level omission. Verify that evaluator approval does not silently become
+execution permission.
 
 ## Falsifier
 

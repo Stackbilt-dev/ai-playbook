@@ -4,6 +4,18 @@ This case comes from ColonyOS's post-incident record. For approximately eight
 hours, its cognitive tick loop ran every fifteen minutes, made decisions, and
 then discarded them. The heartbeat was alive. The system was not progressing.
 
+## Evidence Status
+
+```yaml
+evidence_status: observed_incident
+recorded_at: see source receipt
+source_type: ColonyOS post-incident record
+limitations:
+  - operational incident rather than a controlled experiment
+  - duration is approximate
+reverification_required_for_present-tense_claims: true
+```
+
 ## The Apparent Health
 
 The alarm fired. The tick ran. The alarm was rescheduled. Diagnostics

@@ -35,6 +35,19 @@ expiry:
 | Cost and latency | | | | |
 | Recovery | | | | |
 
+## Evaluation Governance
+
+- Primary success metric:
+- Counter-metric or failure signal:
+- Plausible ways the primary metric can be gamed:
+- Producer:
+- Evaluator:
+- Basis for evaluator independence:
+- Evidence unavailable to the evaluator:
+- Correlated failures that could fool both producer and evaluator:
+- What the evaluation may block or escalate:
+- What the evaluation may not authorize:
+
 ## Representative Coverage
 
 - Included cases and populations:
@@ -42,6 +55,7 @@ expiry:
 - Known context shifts:
 - Stakeholder or domain review completed:
 - Counterexamples retained:
+- Regressions hidden by the headline metric:
 
 ## Proposed Promotion
 

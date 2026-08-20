@@ -4,6 +4,18 @@ This case comes from the Stackbilt sales-rep implementation and its first
 no-send dry run. It is useful because the system did several things correctly,
 then refused to do the thing the original request appeared to ask for.
 
+## Evidence Status
+
+```yaml
+evidence_status: reproduced_test
+recorded_at: 2026-08-14
+source_type: Stackbilt implementation handoff and dry-run record
+limitations:
+  - one bounded workflow rather than a representative outcome study
+  - public signals did not establish recipient consent or buying intent
+reverification_required_for_present-tense_claims: true
+```
+
 ## The Request
 
 > Find a good prospect and reach out with the right offer.

@@ -13,7 +13,9 @@ Use a small claim ledger:
 | Claim | One statement that can be challenged independently |
 | Type | Observation, inference, forecast, preference, or obligation |
 | Scope | Population, resource, location, or decision it applies to |
-| Time | Observed at, valid from, expires at |
+| Observed at | When the source or system recorded the claim |
+| Validity | Valid from, valid until, and any claim it supersedes |
+| Relevance | Why the claim bears on this decision now |
 | Provenance | Source, transformation, and responsible owner |
 | Confidence | Evidence class or calibrated estimate—not prose intensity |
 | Conflicts | Claims that cannot simultaneously govern the decision |
@@ -31,6 +33,11 @@ Category collapse occurs when different claim types are written as if they had t
 
 Blending them into one paragraph makes the conclusion difficult to audit and easy to overstate.
 
+Recency creates a related collapse. A recently retrieved claim may be irrelevant,
+and a highly relevant claim may no longer be true. Relevance, confidence, and
+temporal validity are separate properties. None should be used as a proxy for
+the others.
+
 ## Mechanism: Contradiction and Constraint Review
 
 Before synthesis, check:
@@ -41,6 +48,7 @@ Before synthesis, check:
 4. Does the proposed conclusion require a claim that is absent?
 5. Are confidence and evidence quality independent?
 6. Can conflicting claims coexist under different scopes?
+7. Has a current claim superseded rather than erased its predecessor?
 
 Formal logic can help when propositions and rules are truly specified. Naming a logic family without defining representation or inference rules adds no protection.
 

@@ -3,10 +3,10 @@
   "subtitle": "A field guide to context, evidence, and governed decisions in AI systems",
   "author": "Kurt Overmier",
   "publisher": "Stackbilt",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "edition": "public-review",
-  "publicationDate": "2026-08-15",
-  "verifiedThrough": "2026-08-15",
+  "publicationDate": "2026-08-19",
+  "verifiedThrough": "2026-08-19",
   "canonicalUrl": "https://github.com/Stackbilt-dev/ai-playbook/tree/main/field-guides/the-shape-of-judgment",
   "rights": "Copyright © 2026 Kurt Overmier. All rights reserved."
 }

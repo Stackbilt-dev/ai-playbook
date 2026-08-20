@@ -27,6 +27,8 @@ Use an [Experiment and Promotion Card](../worksheets/experiment-and-promotion-ca
 - current authority and proposed authority;
 - representative evaluation population;
 - success, safety, and equity measures;
+- evaluator identity, independence, and allowed authority;
+- counter-metrics and plausible ways the primary metric can be gamed;
 - known blind spots;
 - shadow or bounded-execution results;
 - blast radius and rollback path;
@@ -48,6 +50,11 @@ Do not optimize only the easiest observable proxy. Measure:
 - unknown or unmeasured effects.
 
 A metric can inform judgment without becoming the sole objective.
+
+The evaluator is part of the experiment. Record whether it is independent of
+the producer, whether it can observe the evidence needed to judge the outcome,
+and which correlated failures could fool both. A second model call is not
+automatically an independent review.
 
 ## Demotion and Retirement
 

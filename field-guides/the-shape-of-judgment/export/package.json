@@ -3,8 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build.mjs",
+    "build": "node build.mjs && node build-linkedin.mjs",
     "render:pdf": "node render-pdf.mjs",
+    "render:linkedin": "node render-linkedin.mjs",
     "verify": "node verify.mjs"
   },
   "dependencies": {

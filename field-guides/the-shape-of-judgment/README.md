@@ -4,7 +4,7 @@
 
 **Stackbilt field notes**
 
-**Edition:** `0.2.0` public draft
+**Edition:** `0.3.0` public-review draft
 
 Models detect patterns and generate interpretations. A dependable system still has to decide which patterns count as evidence, which rules remain invariant, how context changes the decision, and who has authority to act.
 
@@ -54,6 +54,7 @@ It is not a guide to choosing a model, writing a clever chain-of-thought prompt,
 9. [Case File: The Lead That Stopped](chapters/09-governed-revenue-decision.md)
 10. [The Judgment Review](chapters/10-judgment-review.md)
 11. [Case File: The Silent Loop](chapters/11-the-silent-loop.md)
+12. [Case File: The Fluent Omission](chapters/12-the-fluent-omission.md)
 
 ## Worksheets
 

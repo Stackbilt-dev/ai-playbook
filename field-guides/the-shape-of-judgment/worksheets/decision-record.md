@@ -30,9 +30,12 @@ status: framing | evidence_pending | review | approved | denied | committed
 
 ## Claim Ledger
 
-| ID | Claim | Type | Provenance | Scope/time | Confidence | Conflict | Decision use |
-|----|-------|------|------------|------------|------------|----------|--------------|
-| | | observation / inference / forecast / preference / obligation | | | | | |
+| ID | Claim | Type | Evidence status | Provenance | Scope | Observed/valid | Relevance | Confidence | Decision use |
+|----|-------|------|-----------------|------------|-------|----------------|-----------|------------|--------------|
+| | | observation / inference / forecast / preference / obligation | observed incident / reproduced test / design inference / external report | | | | | | |
+
+- Supersedes or conflicts with:
+- Freshness or re-verification required:
 
 ## Evidence Gaps
 
@@ -62,6 +65,17 @@ approval_required:
 approval_ref:
 idempotency_key:
 expires_at:
+```
+
+## Evaluation Boundary
+
+```yaml
+producer:
+evaluator:
+independence_basis:
+evaluation_can: advise | block | escalate
+evaluation_cannot:
+accountable_approver:
 ```
 
 ## Outcome
